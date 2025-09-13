@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Eric Taylor</title>
+    <link>http://localhost:1313/hugo-website/tags/</link>
+    <description>Recent content in Tags on Eric Taylor</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/hugo-website/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Research</title>
+      <link>http://localhost:1313/hugo-website/tags/research/</link>
+      <pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/hugo-website/tags/research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Minecraft</title>
+      <link>http://localhost:1313/hugo-website/tags/minecraft/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/hugo-website/tags/minecraft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Irregular Verbs</title>
+      <link>http://localhost:1313/hugo-website/tags/irregular-verbs/</link>
+      <pubDate>Wed, 01 Jan 1997 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/hugo-website/tags/irregular-verbs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Philology</title>
+      <link>http://localhost:1313/hugo-website/tags/philology/</link>
+      <pubDate>Wed, 01 Jan 1997 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/hugo-website/tags/philology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Portugese</title>
+      <link>http://localhost:1313/hugo-website/tags/portugese/</link>
+      <pubDate>Wed, 01 Jan 1997 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/hugo-website/tags/portugese/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/hugo-website/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=hugo-website/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Himalayan Debris Classifier | Eric Taylor</title>
+<meta name="keywords" content="Research">
+<meta name="description" content="A random forest classifier for classifying clean ice, dirty ice, debris-covered ice, and water from Landsat imagery.">
+<meta name="author" content="Eric Taylor">
+<link rel="canonical" href="http://localhost:1313/hugo-website/projects/debrisclassifier/">
+<link crossorigin="anonymous" href="/hugo-website/assets/css/stylesheet.ac30954b7ea20660ca1cb473400ecede9e601f17674446536180d3ca00f03328.css" integrity="sha256-rDCVS36iBmDKHLRzQA7O3p5gHxdnREZTYYDTygDwMyg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/hugo-website/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/hugo-website/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/hugo-website/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/hugo-website/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/hugo-website/projects/debrisclassifier/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://localhost:1313/hugo-website/projects/debrisclassifier/">
+  <meta property="og:site_name" content="Eric Taylor">
+  <meta property="og:title" content="Himalayan Debris Classifier">
+  <meta property="og:description" content="A random forest classifier for classifying clean ice, dirty ice, debris-covered ice, and water from Landsat imagery.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-05-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-15T00:00:00+00:00">
+    <meta property="article:tag" content="Research">
+    <meta property="og:image" content="http://localhost:1313/hugo-website/projects/debrisclassifier/Labels.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/hugo-website/projects/debrisclassifier/Labels.png">
+<meta name="twitter:title" content="Himalayan Debris Classifier">
+<meta name="twitter:description" content="A random forest classifier for classifying clean ice, dirty ice, debris-covered ice, and water from Landsat imagery.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/hugo-website/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Himalayan Debris Classifier",
+      "item": "http://localhost:1313/hugo-website/projects/debrisclassifier/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Himalayan Debris Classifier",
+  "name": "Himalayan Debris Classifier",
+  "description": "A random forest classifier for classifying clean ice, dirty ice, debris-covered ice, and water from Landsat imagery.",
+  "keywords": [
+    "Research"
+  ],
+  "articleBody": " Classified debris-covered glaciers in the Everest Region Introduction Presently, global and regional distributed debris thickness maps (e.g., Rounce et al., 2021; McCarthy et al., 2022) use a binary method of debris classification, whereby a pixel is either debris-covered (and has a measurable thickness) or it is clean-ice. Such maps have a middle resolution, typically 30 m x 30 m, derived using satellite imagery.\nAt the sub-pixel level, surface type within middle-resolution imagery is heterogenous. This has implications for glacier melt models, where the estimated melt is dependent on the surface type. Thick debris cover on debris-covered glaciers reduces melt compared to a climatologically equivilant clean-ice surface (Evatt et al., 2015). Below a critical thickness (typically 2-3 cm), debris cover enhanced melt due to its lower albedo to clean ice. If both clean ice and debris-covered ice are present at the sub-pixel level, but a classification model only defines one surface type for the entire pixel, then subsequent melt estimates will be inaccurate.\nRounce et al. (2018) identify this as the ‘mixed pixel’ effect in the lower ablation area on glacier tongues. Debris cover appears thick in their models, which would result in a significant reduction in estimated sub-debris ablation. However, measured ablation is significantly higher due to unresolved sub-pixel scale supraglacial ponds and ice cliffs. Exposed ice at such low elevations as the glacier tongue results in highly concentrated areas of melt, which can even offset the reduced ablation beneath thick debris, regarded as the ‘debris-cover anomaly’ (Salerno et al., 2017).\nMy dissertation concluded that:\n“Methods for estimating the fractional debris cover within low-resolution satellite-obtained pixels need to be developed so that the sparsely covered transition zone can be better represented in models of debris cover and its evolution, thereby permitting better projections of debris evolution and its resultant impacts on glacier dynamics in a changing climate.” (p. 44)\nDebris thickness on Rongbuk Glacier, Tibet A starting point is to develop a classifier which is able to classify satellite imagery into clean-ice, partially debris-covered, and debris-covered pixels. The next step would be to develop algorithms which estimate the degree of debris-cover at the sub-pixel level before employing a mixed melt model. Here, we tackle the starting point.\nTraining Data To classify Landsat imagery, I employ a supervised learning approach - a random forest classifier.\nProducing a cloud-free image Mountains are cloudy[CITATION NEEDED]\nClassification References Evatt, G.W. et al. (2015) ‘Glacial melt under a porous debris layer’, Journal of Glaciology, 61(229), pp. 825–836. Available at: https://doi.org/10.3189/2015JoG14J235.\nMcCarthy, M. et al. (2022) ‘Supraglacial debris thickness and supply rate in High-Mountain Asia’, Communications Earth \u0026 Environment, 3(1), pp. 1–11. Available at: https://doi.org/10.1038/s43247-022-00588-2.\nRounce, D.R. et al. (2018) ‘Quantifying Debris Thickness of Debris-Covered Glaciers in the Everest Region of Nepal Through Inversion of a Subdebris Melt Model’, Journal of Geophysical Research: Earth Surface, 123(5), pp. 1094–1115. Available at: https://doi.org/10.1029/2017JF004395.\nRounce, D.R. et al. (2021) ‘Distributed Global Debris Thickness Estimates Reveal Debris Significantly Impacts Glacier Mass Balance’, Geophysical Research Letters, 48(8), p. e2020GL091311. Available at: https://doi.org/10.1029/2020GL091311.\nSalerno, F. et al. (2017) ‘Debris-covered glacier anomaly? Morphological factors controlling changes in the mass balance, surface area, terminus position, and snow line altitude of Himalayan glaciers’, Earth and Planetary Science Letters, 471, pp. 19–31. Available at: https://doi.org/10.1016/j.epsl.2017.04.039.\n",
+  "wordCount" : "539",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/hugo-website/projects/debrisclassifier/Labels.png","datePublished": "2025-05-15T00:00:00Z",
+  "dateModified": "2025-05-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Eric Taylor"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/hugo-website/projects/debrisclassifier/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Eric Taylor",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/hugo-website/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/hugo-website/" accesskey="h" title="Eric Taylor">
+                <img src="http://localhost:1313/hugo-website/favicon.ico" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Eric Taylor</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/hugo-website/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/hugo-website/interests/" title="Interests">
+                    <span>Interests</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Himalayan Debris Classifier
+    </h1>
+    <div class="post-meta"><span title='2025-05-15 00:00:00 +0000 UTC'>May 2025</span>&nbsp;&middot;&nbsp;Eric Taylor
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#training-data">Training Data</a></li>
+    <li><a href="#producing-a-cloud-free-image">Producing a cloud-free image</a></li>
+    <li><a href="#classification">Classification</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
+  <img src="Labels.png" alt="Classified debris" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+  <figcaption style="
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 4px 8px;
+    font-size: 10;
+    font-weight: normal;
+    text-align: center;
+    width: 100%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  ">
+    Classified debris-covered glaciers in the Everest Region
+  </figcaption>
+</figure>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Presently, global and regional distributed debris thickness maps (e.g., Rounce et al., 2021; McCarthy et al., 2022) use a binary method of debris classification, whereby a pixel is either debris-covered (and has a measurable thickness) or it is clean-ice. Such maps have a middle resolution, typically 30 m x 30 m, derived using satellite imagery.</p>
+<p>At the sub-pixel level, surface type within middle-resolution imagery is heterogenous. This has implications for glacier melt models, where the estimated melt is dependent on the surface type. Thick debris cover on debris-covered glaciers reduces melt compared to a climatologically equivilant clean-ice surface (Evatt et al., 2015). Below a critical thickness (typically 2-3 cm), debris cover enhanced melt due to its lower albedo to clean ice. If both clean ice and debris-covered ice are present at the sub-pixel level, but a classification model only defines one surface type for the entire pixel, then subsequent melt estimates will be inaccurate.</p>
+<p>Rounce et al. (2018) identify this as the &lsquo;mixed pixel&rsquo; effect in the lower ablation area on glacier tongues. Debris cover appears thick in their models, which would result in a significant reduction in estimated sub-debris ablation. However, measured ablation is significantly higher due to unresolved sub-pixel scale supraglacial ponds and ice cliffs. Exposed ice at such low elevations as the glacier tongue results in highly concentrated areas of melt, which can even offset the reduced ablation beneath thick debris, regarded as the &lsquo;debris-cover anomaly&rsquo; (Salerno et al., 2017).</p>
+<p>My dissertation concluded that:</p>
+<blockquote>
+<p>&ldquo;Methods for estimating the fractional debris cover within low-resolution satellite-obtained pixels need to be developed so that the sparsely covered transition zone can be better represented in models of debris cover and its evolution, thereby permitting better projections of debris evolution and its resultant impacts on glacier dynamics in a changing climate.&rdquo; (p. 44)</p></blockquote>
+<figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
+  <img src="TZ_DDTM_Visual.png" alt="Rongbuk Glacier" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+  <figcaption style="
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 4px 8px;
+    font-size: 10;
+    font-weight: normal;
+    text-align: center;
+    width: 100%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  ">
+    Debris thickness on Rongbuk Glacier, Tibet
+  </figcaption>
+</figure>
+<p>A starting point is to develop a classifier which is able to classify satellite imagery into clean-ice, partially debris-covered, and debris-covered pixels. The next step would be to develop algorithms which estimate the degree of debris-cover at the sub-pixel level before employing a mixed melt model. Here, we tackle the starting point.</p>
+<h2 id="training-data">Training Data<a hidden class="anchor" aria-hidden="true" href="#training-data">#</a></h2>
+<p>To classify Landsat imagery, I employ a supervised learning approach - a random forest classifier.</p>
+<h2 id="producing-a-cloud-free-image">Producing a cloud-free image<a hidden class="anchor" aria-hidden="true" href="#producing-a-cloud-free-image">#</a></h2>
+<p>Mountains are cloudy<sup>[CITATION NEEDED]</sup></p>
+<h2 id="classification">Classification<a hidden class="anchor" aria-hidden="true" href="#classification">#</a></h2>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<p>Evatt, G.W. et al. (2015) ‘Glacial melt under a porous debris layer’, Journal of Glaciology, 61(229), pp. 825–836. Available at: <a href="https://doi.org/10.3189/2015JoG14J235" target="_blank">https://doi.org/10.3189/2015JoG14J235</a>.</p>
+<p>McCarthy, M. et al. (2022) ‘Supraglacial debris thickness and supply rate in High-Mountain Asia’, Communications Earth &amp; Environment, 3(1), pp. 1–11. Available at: <a href="https://doi.org/10.1038/s43247-022-00588-2" target="_blank">https://doi.org/10.1038/s43247-022-00588-2</a>.</p>
+<p>Rounce, D.R. et al. (2018) ‘Quantifying Debris Thickness of Debris-Covered Glaciers in the Everest Region of Nepal Through Inversion of a Subdebris Melt Model’, Journal of Geophysical Research: Earth Surface, 123(5), pp. 1094–1115. Available at: <a href="https://doi.org/10.1029/2017JF004395" target="_blank">https://doi.org/10.1029/2017JF004395</a>.</p>
+<p>Rounce, D.R. et al. (2021) ‘Distributed Global Debris Thickness Estimates Reveal Debris Significantly Impacts Glacier Mass Balance’, Geophysical Research Letters, 48(8), p. e2020GL091311. Available at: <a href="https://doi.org/10.1029/2020GL091311" target="_blank">https://doi.org/10.1029/2020GL091311</a>.</p>
+<p>Salerno, F. et al. (2017) ‘Debris-covered glacier anomaly? Morphological factors controlling changes in the mass balance, surface area, terminus position, and snow line altitude of Himalayan glaciers’, Earth and Planetary Science Letters, 471, pp. 19–31. Available at: <a href="https://doi.org/10.1016/j.epsl.2017.04.039" target="_blank">https://doi.org/10.1016/j.epsl.2017.04.039</a>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/hugo-website/tags/research/">Research</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2025 Eric Taylor</span> ·     
+    <span>
+    Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">hugo</a>, <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">papermod</a>, &amp;
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">hugo-website</a>.
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>
