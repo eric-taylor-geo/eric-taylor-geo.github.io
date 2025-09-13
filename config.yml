@@ -1,5 +1,5 @@
 baseURL: "https://pascalmichaillat.org/hugo-website/" 
-title: Moritz-Maria von Igelfeld
+title: Eric Taylor
 theme: PaperMod
 
 enableInlineShortcodes: true
@@ -12,25 +12,17 @@ taxonomies:
 
 menu:
     main:
-        - name: Books
-          url: books/
-          weight: 5 
-        - name: Papers
-          url: papers/
-          weight: 2
-        - name: Courses
-          url: courses/
+        - name: Projects
+          url: projects/
           weight: 3
-        - name: Data
-          url: data/
-          weight: 4 
-        - name: Blog
-          url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
-          weight: 6
+        - name: Interests
+          url: interests/
+          weight: 4
+
 
 params:
-    description: "This website hosts Moritz-Maria von Igelfeld's research papers, books, course materials, data, curriculum vitae, and contact information."
-    author: Moritz-Maria von Igelfeld
+    description: "This website hosts Eric Taylor's information and projects."
+    author: Eric Taylor
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
     defaultTheme: light
@@ -44,7 +36,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["books","courses","papers","data"]
+    MainSections: ["Projects","Hobbies"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -54,50 +46,39 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Professor Dr von Igelfeld
-          subtitle: "I am a Professor in the Institute of Romance Philology at the University of Regensburg, Germany. My research focuses on Portuguese irregular verbs. I was a doctoral student of Professor Dr Dieter Vogelsang in Munich, and later a second assistant of Professor Walter Schoeffler-Henschell at the University of Wiesbaden."
-          imageUrl: "picture.jpeg"
+          title: Eric Taylor
+          subtitle: "I am an MSc student in Environmental Data Science and ML at Imperial. I recently graduated with a first-class Geography degree from the University of Cambridge. I have an interest in the remote sensing of debris-covered glaciers to better quantify their longevity under climate change. In my free time I enjoy running and re-creating real-world locations in Minecraft."
+          imageUrl: "profile_picture.JPG"
           imageWidth: 160
           imageHeight: 160
           buttons:
-            - name: Papers
-              url: papers/
-            - name: Data
-              url: data/
-            - name: Books
-              url: books/
-            - name: Courses
-              url: courses/
-            - name: Tags
-              url: tags/
-            - name: Archive
-              url: archive/
-            - name: Blog
-              url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+            # - name: Papers
+            #   url: papers/
+            # - name: Data
+            #   url: data/
+            # - name: Books
+            #   url: books/
+            - name: Projects
+              url: projects/
+            - name: Interests
+              url: interests/
+            # - name: Tags
+            #   url: tags/
+            # - name: Archive
+            #   url: archive/
 
     socialIcons:
         - name: CV
-          url: cv.pdf
+          url: Eric_Taylor_CV.pdf
         - name: Email
-          url: mailto:igelfeld@regensburg.edu
-        - name: Zoom
-          url: https://www.zoom.us/my/igelfeld
-        - name: Location
-          url: location/
-        - name: Office Hours
-          url: officehours/
-        - name: Google Scholar
-          url: https://scholar.google.com/citations?user=cL23w-4AAAAJ
+          url: mailto:elt25@ic.ac.uk
         - name: GitHub
-          url: https://github.com/pmichaillat
-        - name: Substack
-          url: https://pmichaillat.substack.com
-        - name: YouTube
-          url: https://www.youtube.com/@pmichaillat
+          url: https://github.com/eric-taylor-geo
         - name: Twitter
-          url: https://x.com/pmichaillat
-        - name: Bluesky
-          url: https://bsky.app/profile/pmichaillat.bsky.social
+          url: https://x.com/EricLTaylor_
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/eric-taylor-8a82a4201/
+
 
     assets:
         disableScrollBarStyle: true
@@ -105,7 +86,7 @@ params:
         hiddenInList: false
         hiddenInSingle: true
     label:
-      text: "Moritz-Maria von Igelfeld"
+      text: "Eric Taylor"
       icon: favicon.ico
       iconHeight: 18
 
