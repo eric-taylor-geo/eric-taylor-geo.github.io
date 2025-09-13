@@ -31,8 +31,8 @@ disableAnchoredHeadings: false
 
 ---
 
-<figure style="position: relative; display: inline-block; margin: 0;">
-  <img src="hogwarts.jpg" alt="Hogwarts" style="display: block;">
+<figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
+  <img src="hogwarts.jpg" alt="Minecraft Hogwarts" style="display: block; width: 100%; height: auto; border-radius: 12px;">
   <figcaption style="
     position: absolute;
     bottom: 0;
@@ -41,10 +41,12 @@ disableAnchoredHeadings: false
     background: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 4px 8px;
-    font-size: inherit;
+    font-size: 15px;
     font-weight: normal;
     text-align: center;
     width: 100%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
   ">
     Minecraft Hogwarts
   </figcaption>
