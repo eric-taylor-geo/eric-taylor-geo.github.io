@@ -1,4 +1,4 @@
-baseURL: "https://eric-taylor-geo.github.io/" 
+baseURL: "https://pascalmichaillat.org/hugo-website/" 
 title: Eric Taylor
 theme: PaperMod
 
@@ -46,7 +46,7 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Eric Taylor
+          title: Eric Taylor (He/him)
           subtitle: "I am an MSc student in Environmental Data Science and ML at Imperial. I recently graduated with a first-class Geography degree from the University of Cambridge. I have an interest in the remote sensing of debris-covered glaciers to better quantify their longevity under climate change. In my free time I enjoy running and re-creating real-world locations in Minecraft."
           imageUrl: "profile_picture.JPG"
           imageWidth: 160
@@ -74,7 +74,7 @@ params:
           url: mailto:elt25@ic.ac.uk
         - name: GitHub
           url: https://github.com/eric-taylor-geo
-        - name: Twitter
+        - name: X
           url: https://x.com/EricLTaylor_
         - name: LinkedIn
           url: https://www.linkedin.com/in/eric-taylor-8a82a4201/
