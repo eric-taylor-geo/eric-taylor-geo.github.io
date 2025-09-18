@@ -46,8 +46,8 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Eric Taylor (He/him)
-          subtitle: "I am an MSc student in Environmental Data Science and ML at Imperial. I recently graduated with a first-class Geography degree from the University of Cambridge. I have an interest in the remote sensing of debris-covered glaciers to better quantify their longevity under climate change. In my free time I enjoy running and re-creating real-world locations in Minecraft."
+          title: Eric Taylor
+          subtitle: "I am an MSc student in Environmental Data Science and ML at Imperial. I recently graduated with a first-class Geography degree from the University of Cambridge. I have an interest in computational glaciology. In my free time I enjoy running and re-creating real-world locations in Minecraft."
           imageUrl: "profile_picture.JPG"
           imageWidth: 160
           imageHeight: 160
