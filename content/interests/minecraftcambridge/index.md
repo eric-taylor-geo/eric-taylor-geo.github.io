@@ -78,6 +78,8 @@ I've always enjoyed recreating the world around me in Minecraft. Cambridge is si
   <button class="next" aria-label="Next">&#10095;</button>
 </div>
 
+<!-- Styles and JS -->
+
 
 <style>
   .carousel {
