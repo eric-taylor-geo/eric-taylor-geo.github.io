@@ -43,13 +43,14 @@ disableAnchoredHeadings: false
 
 ## About the project
 
-I have been recreating Hogwarts Castle from Harry Potter in Minecraft since March 2019. This project has involved researching the castle's architectural designs, recreating the castle in Minecraft, and populating the interior to be as accurate as possible.
+Since March 2019, I have been recreating Hogwarts Castle from *Harry Potter* in Minecraft. The project combines research into the castle’s architectural design with detailed reconstruction and interior accuracy.
 
-Command blocks, data packs, and custom textures and models bring the magic of the castle to life.
+Command blocks, data packs, and custom textures and models help bring the castle to life.
 
-In addition to the castle, I have built The Ministry of Magic, Azkaban, Malfoy Manor, and The Burrow.
+Alongside Hogwarts, I have built the Ministry of Magic, Azkaban, Malfoy Manor, and the Burrow.
 
-I have documented my building journey on YouTube, amassing over 38,000 subscribers and 7.5 million views. I have also created a  tutorial for the castle, consisting of 34 detailed episodes for viewers to follow.
+I documented this journey on YouTube, where my channel has grown to over 38,000 subscribers and 7.5 million views. I have also produced a 34-episode tutorial series guiding viewers through the castle’s construction.
+
 
 ## The Castle
 
@@ -64,12 +65,26 @@ I have documented my building journey on YouTube, amassing over 38,000 subscribe
     <figure class="carousel-slide">
       <img src="images/hogwarts_quidditch.jpg" alt="Quidditch Pitch" loading="lazy">
     </figure>
+    <figure class="carousel-slide">
+      <img src="images/hogwarts_braided.jpeg" alt="Quidditch Pitch" loading="lazy">
+    </figure>
   </div>
   <button class="prev" aria-label="Previous">&#10094;</button>
   <button class="next" aria-label="Next">&#10095;</button>
 </div>
 
-## Magic
+### Magic
+
+The castle wouldn't be magical without movement.<br>
+*The stairs also rotate...*
+
+<video 
+  src="images/chessbattlescene.mp4" 
+  poster="images/hogwarts_chess1.jpg"
+  controls 
+  playsinline 
+  style="width: 100%; aspect-ratio: 18/9; object-fit: cover; display: block; margin: 1rem auto; border-radius: 12px; overflow: hidden;">
+</video>
 
 <video 
   src="images/chamber_silent.mp4" 
@@ -80,7 +95,9 @@ I have documented my building journey on YouTube, amassing over 38,000 subscribe
   style="width: 100%; aspect-ratio: 18/9; object-fit: cover; display: block; margin: 1rem auto; border-radius: 12px; overflow: hidden;">
 </video>
 
-## Custom Textures and Models
+### Custom Textures and Models
+
+50+ custom models and textures bring the magic of the castle to life and break the boundaries of classical Minecraft. All made by me!
 
 <div class="carousel" id="gallery">
   <div class="carousel-track">
@@ -100,6 +117,33 @@ I have documented my building journey on YouTube, amassing over 38,000 subscribe
   <button class="prev" aria-label="Previous">&#10094;</button>
   <button class="next" aria-label="Next">&#10095;</button>
 </div>
+
+## The Wizarding World
+
+### Ministry of Magic
+
+<figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
+  <img src="images/mom.jpg" alt="Minecraft Ministry of Magic" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+</figure>
+
+### Azkaban
+
+<figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
+  <img src="images/azkaban.jpeg" alt="Minecraft Azkaban" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+</figure>
+
+### The Burrow
+
+<figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
+  <img src="images/burrow.jpeg" alt="Minecraft The Burrow" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+</figure>
+
+### Malfoy Manor
+
+<figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
+  <img src="images/malfoy_manor.jpg" alt="Minecraft Malfoy Manor" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+</figure>
+
 
 <!-- Styles and JS  -->
 
