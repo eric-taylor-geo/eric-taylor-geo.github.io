@@ -28,8 +28,68 @@ I've always enjoyed recreating the world around me in Minecraft. Cambridge is si
 
 ## Colleges
 
-> [Pembroke College](#pembroke) <br>
+> [King's College](#kings) <br>
 > [St John's College](#st-johns) <br>
+> [Pembroke College](#pembroke) <br>
+> [Queens' College](#queens) <br>
+> [Corpus Christi College](#corpus) <br>
+
+### King's
+
+
+<div class="carousel" id="gallery">
+  <div class="carousel-track">
+    <figure class="carousel-slide">
+      <img src="images/kings1.jpeg" alt="Minecraft King's Chapel" loading="lazy">
+    </figure>
+    <figure class="carousel-slide">
+      <img src="images/kings2.jpeg" alt="Minecraft King's Chapel" loading="lazy">
+    </figure>
+        <figure class="carousel-slide">
+      <img src="images/kings3.jpeg" alt="Minecraft King's Chapel" loading="lazy">
+    </figure>
+    <figure class="carousel-slide">
+      <img src="images/kings4.jpeg" alt="Minecraft King's Chapel" loading="lazy">
+    </figure>
+    <figure class="carousel-slide">
+      <img src="images/kings5.jpeg" alt="Minecraft King's Chapel" loading="lazy">
+    </figure>
+  </div>
+  <button class="prev" aria-label="Previous">&#10094;</button>
+  <button class="next" aria-label="Next">&#10095;</button>
+</div>
+
+And a small recreation of the Cambridge scenes in <i>Oppenheimer</i>:
+
+<video 
+  src="images/oppenheimer.mov" 
+  controls 
+  playsinline 
+  style="width: 50%; object-fit: cover; display: block; margin: 1rem auto; border-radius: 12px; overflow: hidden;">
+</video>
+
+
+### St John's
+
+<div class="carousel" id="gallery">
+  <div class="carousel-track">
+    <figure class="carousel-slide">
+      <img src="images/johns1.jpeg" alt="Minecraft New Court" loading="lazy">
+      <!-- <figcaption class="carousel-caption">New Court</figcaption> -->
+    </figure>
+    <figure class="carousel-slide">
+      <img src="images/johns2.jpeg" alt="Minecraft Bridge of Sighs" loading="lazy">
+      <!-- <figcaption class="carousel-caption">Bridge of Sighs</figcaption> -->
+    </figure>
+    <figure class="carousel-slide">
+      <img src="images/johns3.jpeg" alt="Minecraft St John's Chapel" loading="lazy">
+      <!-- <figcaption class="carousel-caption">St John's Chapel</figcaption> -->
+    </figure>
+  </div>
+
+  <button class="prev" aria-label="Previous">&#10094;</button>
+  <button class="next" aria-label="Next">&#10095;</button>
+</div>
 
 ### Pembroke
 
@@ -37,46 +97,58 @@ I've always enjoyed recreating the world around me in Minecraft. Cambridge is si
   <div class="carousel-track">
     <figure class="carousel-slide">
       <img src="images/pembroke1.jpeg" alt="Old Court" loading="lazy">
-      <figcaption class="carousel-caption">Old Court</figcaption>
+      <!-- <figcaption class="carousel-caption">Old Court</figcaption> -->
     </figure>
     <figure class="carousel-slide">
       <img src="images/pembroke2.jpeg" alt="Bowling Green and New Court" loading="lazy">
-      <figcaption class="carousel-caption">Bowling Green and New Court</figcaption>
+      <!-- <figcaption class="carousel-caption">Bowling Green and New Court</figcaption> -->
     </figure>
     <figure class="carousel-slide">
       <img src="images/pembroke3.jpeg" alt="Library Lawn and Old Court" loading="lazy">
-      <figcaption class="carousel-caption">Library Lawn and Old Court</figcaption>
+      <!-- <figcaption class="carousel-caption">Library Lawn and Old Court</figcaption> -->
     </figure>
     <figure class="carousel-slide">
       <img src="images/pembroke4.jpeg" alt="Foundress Court" loading="lazy">
-      <figcaption class="carousel-caption">Foundress Court</figcaption>
+      <!-- <figcaption class="carousel-caption">Foundress Court</figcaption> -->
     </figure>
   </div>
   <button class="prev" aria-label="Previous">&#10094;</button>
   <button class="next" aria-label="Next">&#10095;</button>
 </div>
 
-### St John's
+### Queens'
 
 <div class="carousel" id="gallery">
   <div class="carousel-track">
     <figure class="carousel-slide">
-      <img src="images/johns1.jpeg" alt="New Court" loading="lazy">
-      <figcaption class="carousel-caption">New Court</figcaption>
+      <img src="images/queens1.jpeg" alt="Minecraft Queens' College" loading="lazy">
     </figure>
     <figure class="carousel-slide">
-      <img src="images/johns2.jpeg" alt="Bridge of Sighs" loading="lazy">
-      <figcaption class="carousel-caption">Bridge of Sighs</figcaption>
-    </figure>
-    <figure class="carousel-slide">
-      <img src="images/johns3.jpeg" alt="St John's Chapel" loading="lazy">
-      <figcaption class="carousel-caption">St John's Chapel</figcaption>
+      <img src="images/queens2.jpeg" alt="Minecraft Queens' College" loading="lazy">
     </figure>
   </div>
-
   <button class="prev" aria-label="Previous">&#10094;</button>
   <button class="next" aria-label="Next">&#10095;</button>
 </div>
+
+### Corpus
+
+<div class="carousel" id="gallery">
+  <div class="carousel-track">
+    <figure class="carousel-slide">
+      <img src="images/corpus1.jpeg" alt="Minecraft Corpus Christi College" loading="lazy">
+    </figure>
+    <figure class="carousel-slide">
+      <img src="images/corpus2.jpeg" alt="Minecraft Corpus Christi College" loading="lazy">
+    </figure>
+    <figure class="carousel-slide">
+      <img src="images/corpus3.jpeg" alt="Minecraft Corpus Christi College" loading="lazy">
+    </figure>
+  </div>
+  <button class="prev" aria-label="Previous">&#10094;</button>
+  <button class="next" aria-label="Next">&#10095;</button>
+</div>
+
 
 <!-- Styles and JS -->
 
