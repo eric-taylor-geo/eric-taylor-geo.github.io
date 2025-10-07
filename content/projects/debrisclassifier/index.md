@@ -78,7 +78,7 @@ A starting point is to develop a classifier which is able to classify satellite 
 
 I am familiar with Landsat imagery, so let's use this to begin. Landsat 8 imagery is outputted as 30 m x 30 m and has a recurrence interval of 16 days over a given point. To classify Landsat imagery, I employ a supervised learning approach – a random forest classifier. 
 
-So, let's manually classify some pixels for our model to learn from! Going through a satellite image, identifying the pixel type, and then logging its latitude and longitude manually is a lot of effort. Instead, I built a simple GUI to streamline the process: you drag and drop a satellite image and provide a CSV of desired classes. The program then shows you pixels, with their context, and allows you to quickly assign classes using the keyboard. Much faster!
+So, let's manually label some pixels for our model to learn from! Going through a satellite image, identifying the pixel type, and then logging its latitude and longitude manually is a lot of effort. Instead, I built a simple GUI to streamline the process: you drag and drop a satellite image and provide a CSV of desired classes. The program then shows you pixels, with their context, and allows you to quickly assign classes using the keyboard. Much faster!
 
 <figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
   <img src="supervision.png" alt="Classification software" style="display: block; width: 100%; height: auto; border-radius: 12px;">
