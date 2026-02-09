@@ -172,7 +172,7 @@ pip install .
 
 The U-Net model can be loaded using:
 
-**In [1]**
+**In [1]:**
 <div style="
   background:#f7f7f7;
   border-left:4px solid #4c72b0;
@@ -188,14 +188,14 @@ model = get_model("unet", load_weights=True) # download weights
 ``` 
 </div>
 
-**Out [1]**
+**Out [1]:**
 ```
 Loaded weights for unet from seaice_weights/unet.pth
 ```
 
 Predictions can be made using:
 
-**In [2]**
+**In [2]:**
 <div style="
   background:#f7f7f7;
   border-left:4px solid #4c72b0;
@@ -218,7 +218,7 @@ plot_prediction(input, target, pred)
 ```
 </div>
 
-**Out [2]**
+**Out [2]:**
 <div align="center">
 <figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
   <img src="test.jpg" draggable=false alt="Test image output" style="display: block; width: 100%; height: auto; border-radius: 12px;">
