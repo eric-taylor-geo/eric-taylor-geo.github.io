@@ -151,7 +151,79 @@ The model reproduces the large-scale spatial structure and extent of sea ice con
 
 This apparent over-smoothing may in fact be more representative of real-world sea ice conditions than the discretised ground truth. Sea ice concentration is a fundamentally continuous physical variable, yet the reference product is quantised into coarse 10% bins, introducing artificial step changes and sharp boundaries that do not necessarily correspond to true physical transitions. Consequently, discrepancies at sharp bin boundaries may reflect limitations of the labelled product rather than genuine model error, and the predictions may be closer to the underlying physical state of the ice cover.
 
+## Packaging
 
+The full model code is available on [Github](https://github.com/eric-taylor-geo/sea-ice) and can be installed via:
+
+
+<div style="
+  background:#f7f7f7;
+  border-left:4px solid #b07e4c;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
+">
+
+```
+git clone https://github.com/eric-taylor-geo/sea-ice.git
+cd sea-ice
+pip install .
+```
+</div>
+
+The U-Net model can be loaded using:
+
+**In [1]**
+<div style="
+  background:#f7f7f7;
+  border-left:4px solid #4c72b0;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
+">
+
+```python
+import seaice
+from seaice.models.utils import get_model
+
+model = get_model("unet", load_weights=True) # download weights
+``` 
+</div>
+
+**Out [1]**
+```
+Loaded weights for unet from seaice_weights/unet.pth
+```
+
+Predictions can be made using:
+
+**In [2]**
+<div style="
+  background:#f7f7f7;
+  border-left:4px solid #4c72b0;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
+">
+
+```python
+from seaice.data.data import load_x_y
+from seaice.predict.sliding_window import predict_sliding_window
+from seaice.visualisation import plot_prediction
+
+x_path = "seaice_data/test/X/20201013T080448_dmi_prep.nc" # download data
+y_path = "seaice_data/test/Y/20201013T080448_dmi_prep_reference.nc"
+
+input, target = load_x_y(x_path, y_path)
+pred = predict_sliding_window(model, input, stride=64)
+
+plot_prediction(input, target, pred)
+```
+</div>
+
+**Out [2]**
+<div align="center">
+<figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
+  <img src="test.jpg" draggable=false alt="Test image output" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+</figure>
+</div>
 
 ## References
 
