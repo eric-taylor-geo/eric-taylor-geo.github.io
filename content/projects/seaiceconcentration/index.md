@@ -110,7 +110,7 @@ $$
 
 Because the U-Net is trained on fixed-size $128 \times 128$ patches, full-scene prediction is performed using a sliding-window approach. The trained model is applied convolutionally across each large SAR image by extracting overlapping patches, predicting SIC for each patch, and recombining the outputs into a full-resolution prediction.
 
-When patch predictions are stitched together using hard boundaries or uniform averaging, edge artefacts arise because pixels near edges have an incomplete spatial context for predictions. Consequently, a sliding Hann window, defined as:
+When patch predictions are stitched together using hard boundaries or uniform averaging, edge artefacts arise because pixels near edges have an incomplete spatial context for predictions. Consequently, a sliding Hann window was used, which is defined as:
 
 $$
 h(k) = \frac{1}{2}\left(1-\cos{\frac{2\pi k}{N-1}}\right),
