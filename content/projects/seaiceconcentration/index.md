@@ -82,12 +82,6 @@ $$
 \hat{\mathbf{y}} = \sigma \left( \mathrm{Conv}_{1\times1}(\mathbf{z}_1) \right), \quad  \hat{\mathbf{y}} \in (0,1)^{H \times W}.
 $$
 
-During evaluation, predictions are rounded to the nearest 0.1:
-
-$$
-\hat{y} = \frac{\text{round}(10\hat{y})}{10}.
-$$
-
 ### Loss Function
 
 Loss was calculated as the mean square error over ocean/ice pixels. Non-ocean pixels have a pixel value of 25.5 in the target, and thus can be masked out from the loss calculation:
@@ -138,18 +132,37 @@ $$
 
 where $p$ indexes all patches that cover pixel $(i, j)$, $\hat{y}^{(p)}(i, j)$ is the prediction for that pixel in patch $p$, and $w^{(p)}(i, j)$ is the Hann window weight for that pixel within patch $p$.
 
+The predictions can then be rounded to the nearest 10% to match the discretisation of the labelled dataset:
+$$
+\hat{y} = \frac{\text{round}(10\hat{y})}{10}.
+$$
+
 Running the model on a test image produces the following result:
 
 
 <div align="center">
 <figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
-  <img src="test.jpg" draggable=false alt="Test image output" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+  <img src="test_round.jpg" draggable=false alt="Test image output" style="display: block; width: 100%; height: auto; border-radius: 12px;">
 </figure>
 </div>
+
+<sup>Note: sorry, the colorbar should be discretised!!</sup>
 
 The model reproduces the large-scale spatial structure and extent of sea ice concentration with high qualitative fidelity, capturing the overall geometry of the ice field and smooth transitions across the marginal ice zone. Predictions are spatially coherent and free from patch-boundary artefacts, indicating that the sliding-window inference and Hann-window blending are working as intended. However, the predicted field is noticeably smoother than the discretised ground truth, with sharp concentration gradients and local extremes damped. This behaviour is consistent with bounded regression trained under an MSE loss on limited data.
 
 This apparent over-smoothing may in fact be more representative of real-world sea ice conditions than the discretised ground truth. Sea ice concentration is a fundamentally continuous physical variable, yet the reference product is quantised into coarse 10% bins, introducing artificial step changes and sharp boundaries that do not necessarily correspond to true physical transitions. Consequently, discrepancies at sharp bin boundaries may reflect limitations of the labelled product rather than genuine model error, and the predictions may be closer to the underlying physical state of the ice cover.
+
+### Evaluation
+
+Using the rounded predictions, we can plot a confusion matrix to assess the model's performance. Here, each row is normalised to sum to 100% (else the 0 label dominates).
+
+<div align="center">
+<figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
+  <img src="cm.jpg" draggable=false alt="Confusion Matrix" style="display: block; width: 60%; height: auto; border-radius: 12px;">
+</figure>
+</div>
+
+The confusion matrix shows that predictions are strongly concentrated along the diagonal, with most errors confined to adjacent concentration bins. This indicates that the model captures the ordinal structure of sea-ice concentration well, despite reduced exact-bin accuracy caused by rounding a continuous regression output. Errors are smooth and local rather than categorical, suggesting the regression formulation is appropriate for this task. As aforementioned, rounding reduces the continuous nature of sea ice and the model's original outputs may be more representative of the true sea ice concentration distribution.
 
 ## Packaging
 
