@@ -133,7 +133,7 @@ and looks like:
 The final full prediction is then the weighted average:
 
 $$
-\hat{y}(i,j)=\frac{\sum_{p} w^{(p)}(i,j)\,\hat{y}^{(p)}(i,j)}{\sum_{p\in\mathcal{P}(i,j)} w^{(p)}(i,j)},
+\hat{y}(i,j)=\frac{\sum_{p} w^{(p)}(i,j)\,\hat{y}^{(p)}(i,j)}{\sum_{p} w^{(p)}(i,j)},
 $$
 
 where $p$ indexes all patches that cover pixel $(i, j)$, $\hat{y}^{(p)}(i, j)$ is the prediction for that pixel in patch $p$, and $w^{(p)}(i, j)$ is the Hann window weight for that pixel within patch $p$.
