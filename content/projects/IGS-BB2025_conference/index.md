@@ -18,7 +18,10 @@ disableAnchoredHeadings: false
 
 ---
 
-This work was presented at the International Glaciological Society (British Branch) 2025 meeting.
+<a href="poster.pdf" target="_blank" rel="noopener">
+  Poster
+</a>
+presented at the International Glaciological Society (British Branch) 2025 meeting, University of Oxford.
 
 ## Poster Abstract
 
