@@ -29,12 +29,9 @@ Having previously enjoyed filmmaking with Lego, I wished to film a moon landing 
 
  I needed shots that actually looked convincing in camera. So I tried to do as much as possible practically, using suspended Lego models, simple set builds, and a lot of improvised lighting and perspective tricks. It was a very low-budget setup, but it gave the sequence a much more believable feel.
 
-<figure style="position: relative; display: block; margin: 0 auto; text-align: center; border-radius: 12px; overflow: hidden;">
-  <img src="images/BTS_1.jpeg" alt="MoonLander" style="display: inline-block; width:50%; height: auto; border-radius: 12px;">
-</figure>
-
-<figure style="position: relative; display: block; margin: 0 auto; text-align: center; border-radius: 12px; overflow: hidden;">
-  <img src="images/BTS_2.png" alt="MoonLander" style="display: inline-block; width:50%; height: auto; border-radius: 12px;">
+<figure style="display: flex; justify-content: center; gap: 10px; margin: 0 auto; text-align: center;">
+  <img src="images/BTS_1.jpeg" alt="MoonLander 1" style="width: 31.5%; height: auto; border-radius: 12px;">
+  <img src="images/BTS_2.png" alt="MoonLander 2" style="width: 58.5%; height: auto; border-radius: 12px;">
 </figure>
 
 <p align="center"><i>Mini Lego builds dangling from dental floss and a DIY pulley system to re-create stage separation</i></p>
