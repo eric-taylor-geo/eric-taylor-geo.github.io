@@ -433,9 +433,20 @@ img.in-text {
 }
 
 a[href^="#fn:"], a[href^="#fnref:"] {
-     box-shadow: 0 0px 0 var(--darkcolor);
+	 box-shadow: 0 0px 0 var(--darkcolor);
 }
 
 a[href^="#fn:"]:hover, a[href^="#fnref:"]:hover {
     color: var(--darkcolor);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+[id^="fn:"],
+[id^="fnref:"] {
+    scroll-margin-top: var(--gap);
 }
