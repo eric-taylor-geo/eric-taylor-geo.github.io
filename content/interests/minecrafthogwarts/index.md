@@ -1651,7 +1651,7 @@ var HW_FLOORS = [
       { id: "viaduct",            label: "Viaduct",               x: 46.93, y: 44.80, image: "images/floorplan-grounds-viaduct.png",                 desc: "", firstSeen: "PS", updatedIn: ["GoF", "DH2"],              history: "The Viaduct connects the West and East Wings. It originally connected the Viaduct Entrance and Chamber of Recepetion. The CoR was removed in GoF, being replaced by the Viaduct Courtyard. Harry and Ron can be seen running over the viaduct from the Great Hall to their Transfiguration class in PS." },
       { id: "great-hall-g",       label: "Great Hall",            x: 53.59, y: 18.46, image: "images/floorplan-grounds-greathall.png",               desc: "", firstSeen: "PS",  updatedIn: ["CoS","PoA","GoF","HBP", "DH2"], history: "" },
       { id: "viaduct-entrance-g", label: "Viaduct Entrance",      x: 46.17, y: 55.77, image: "images/floorplan-grounds-viaductentrance.png",         desc: "", firstSeen: "PS",  updatedIn: ["PoA"],         history: "The Viaduct Entrance was inspired by Durham Cathedral's East Facade, and acts as the main entrance to the East Wing." },
-      { id: "central-tower",      label: "Central Tower",         x: 46.17, y: 63.01, image: "images/floorplan-grounds-centraltower.png",            desc: "", firstSeen: "PS",  updatedIn: ["PoA", "GoF"],         history: "" },
+      { id: "central-tower",      label: "Central Tower",         x: 46.17, y: 63.01, image: "images/floorplan-grounds-centraltower.png",            desc: "", firstSeen: "PS",  updatedIn: ["PoA", "GoF"],         history: "The Central Tower originally had round turrets at each corner and a conical roof at its center. In PoA" },
       { id: "bell-tower-g",       label: "Bell Tower",            x: 43.66, y: 82.48, image: "images/floorplan-grounds-belltower.png",               desc: "", firstSeen: "PS", updatedIn: ["PoA"],              history: "" },
       { id: "astronomy-tower",    label: "Astronomy Tower",       x: 53.11, y: 67.39, image: "images/floorplan-grounds-astronomytower.png",          desc: "", firstSeen: "HBP", updatedIn: [],              history: "The Astronomy Tower replaced the Dark Tower in HBP and is the tallest structure in the castle." },
       { id: "clock-tower",        label: "Clock Tower",           x: 69.49, y: 41.88, image: "images/floorplan-grounds-clocktower.png",              desc: "", firstSeen: "PoA", updatedIn: [],              history: "" },
@@ -1822,6 +1822,8 @@ var HW_FLOORS = [
 
   /* ── Touch: single-finger drag + two-finger pinch ───── */
   var touch = null;
+  var touchMoved = false;
+  var touchMarker = null;
 
   function touchDist(a, b) {
     var dx = a.clientX - b.clientX, dy = a.clientY - b.clientY;
@@ -1831,6 +1833,8 @@ var HW_FLOORS = [
   mapWrap.addEventListener('touchstart', function (e) {
     e.preventDefault();
     mapWrap.classList.add('is-dragging');
+    touchMoved = false;
+    touchMarker = e.target.closest ? e.target.closest('.hw-marker') : null;
     var rect = mapWrap.getBoundingClientRect();
     if (e.touches.length === 1) {
       touch = { fingers: 1, x: e.touches[0].clientX, y: e.touches[0].clientY,
@@ -1847,11 +1851,15 @@ var HW_FLOORS = [
     e.preventDefault();
     if (!touch) return;
     if (touch.fingers === 1 && e.touches.length >= 1) {
-      xfm.tx = touch.tx + (e.touches[0].clientX - touch.x);
-      xfm.ty = touch.ty + (e.touches[0].clientY - touch.y);
+      var dx = e.touches[0].clientX - touch.x;
+      var dy = e.touches[0].clientY - touch.y;
+      if (Math.abs(dx) > 6 || Math.abs(dy) > 6) touchMoved = true;
+      xfm.tx = touch.tx + dx;
+      xfm.ty = touch.ty + dy;
       clampTransform();
       applyTransform();
     } else if (touch.fingers === 2 && e.touches.length >= 2) {
+      touchMoved = true;
       var newD = touchDist(e.touches[0], e.touches[1]);
       var newS = clamp(touch.s * (newD / touch.d), MIN_S, MAX_S);
       var r    = newS / xfm.s;
@@ -1864,7 +1872,12 @@ var HW_FLOORS = [
   }, { passive: false });
 
   mapWrap.addEventListener('touchend', function () {
+    if (touchMarker && !touchMoved) {
+      touchMarker.click();
+    }
     touch = null;
+    touchMoved = false;
+    touchMarker = null;
     mapWrap.classList.remove('is-dragging');
   });
 
