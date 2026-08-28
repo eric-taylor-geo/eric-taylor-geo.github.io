@@ -25,7 +25,8 @@ cover:
     </div>
     <div class="hw-hero-body">
       <!-- <p class="hw-eyebrow pd-reveal">A Minecraft Recreation</p> -->
-      <h1 class="hw-hero-title pd-reveal">Hogwarts Castle</h1>
+      <h1 class="hw-hero-title pd-reveal">Hogwarts Castle and Grounds</h1>
+      <!-- <p class="hw-hero-tagline pd-reveal">Research, rebuilding, and a slightly unreasonable amount of floor planning.</p> -->
       <p class="hw-hero-tagline pd-reveal">Research, rebuilding, and a slightly unreasonable amount of floor planning.</p>
     </div>
     <div class="hw-scroll-cue" aria-hidden="true">↓</div>
@@ -64,6 +65,26 @@ cover:
     </div>
   </section>
 
+  <!-- ── TOUR VIDEO ─────────────────────────────────────── -->
+  <section class="hw-tour">
+    <div class="hw-tour-inner pd-reveal">
+      <!-- <p class="hw-section-label">Watch</p>
+      <h2 class="hw-tour-heading">The full castle tour</h2> -->
+      <div class="hw-tour-frame">
+        <button class="hw-tour-facade" type="button" data-video-id="tlsSnm1L6w4" aria-label="Play the Hogwarts castle tour video">
+          <img src="https://img.youtube.com/vi/tlsSnm1L6w4/maxresdefault.jpg" alt="Hogwarts castle tour" loading="lazy"
+               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/tlsSnm1L6w4/hqdefault.jpg';">
+          <span class="hw-tour-play" aria-hidden="true">
+            <svg viewBox="0 0 68 48">
+              <path class="hw-tour-play-bg" d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.5c-2.9.8-4.6 3.3-5.4 6.2C.1 13 0 24 0 24s.1 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.5c2.9-.8 4.6-3.3 5.4-6.2C67.9 35 68 24 68 24s-.1-11-1.5-16.3z"></path>
+              <path d="M45 24 27 14v20z" fill="#fff"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- ── INTERIOR ───────────────────────────────────────── -->
   <section class="hw-establish">
     <figure class="hw-full-img pd-reveal">
@@ -73,7 +94,26 @@ cover:
       <h2>The Interior</i> </h2>
       <p>Any Minecraft builder would agree with me - interior SUCKS. Making a coherent interior which doesn't appear like a maze is no easy task, especially given the lack of reference material and that the films were clearly filmed in a non-Euclidean space to get everything to connect.<sup><button class="hw-footnote-ref" id="hw-footnote-ref-1" type="button" data-footnote-target="hw-footnote-1" aria-label="Open footnote 1">[1]</button></sup></p>
       <br>
-      <p>I put my digital art skills to the test and made a custom resource pack with 50+ custom models and textures to bring the castle to life.</p>
+      <p>I put my digital art skills to the test and made a custom resource pack with 50+ custom models and textures to bring the castle to life. Command blocks then make it move. Namely, the opening of the Chamber of Secrets, Dumbledore's Office, and a working Wizard's Chess battle:</p>
+    </div>
+  </section>
+
+  <!-- ── WIZARD'S CHESS ─────────────────────────────────── -->
+  <section class="hw-tour">
+    <div class="hw-tour-inner pd-reveal">
+      <!-- <p class="hw-section-label">The Magic</p>
+      <h2 class="hw-tour-heading">Wizard's Chess</h2> -->
+      <div class="hw-tour-frame">
+        <button class="hw-tour-facade" type="button" data-video-id="v96zMf2Cmlc" aria-label="Play the Wizard's Chess video">
+          <img src="images/hogwarts_chess1.jpg" alt="Wizard's Chess battle recreated in Minecraft" loading="lazy">
+          <span class="hw-tour-play" aria-hidden="true">
+            <svg viewBox="0 0 68 48">
+              <path class="hw-tour-play-bg" d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.5c-2.9.8-4.6 3.3-5.4 6.2C.1 13 0 24 0 24s.1 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.5c2.9-.8 4.6-3.3 5.4-6.2C67.9 35 68 24 68 24s-.1-11-1.5-16.3z"></path>
+              <path d="M45 24 27 14v20z" fill="#fff"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
   </section>
   <!-- <section class="hw-interior">
@@ -370,37 +410,37 @@ cover:
   ═══════════════════════════════════════════════════════ */
   .post-header { display: none; }
 
-  /* Dark background everywhere on this page */
+  /* Light background everywhere on this page */
   body,
-  .main { background: #0d0d0d; }
+  .main { background: #ffffff; }
 
   /* ── Post footer (tags, pagination) ── */
   .post-footer,
   .post-tags a,
   .paginav {
-    background: #0d0d0d;
+    background: #ffffff;
   }
 
   .post-tags a {
-    color: rgba(240, 236, 228, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgb(108, 108, 108);
+    border: 1px solid rgb(238, 238, 238);
     border-radius: 8px;
   }
 
   .post-tags a:hover {
-    background: rgba(255, 255, 255, 0.07);
-    color: rgba(240, 236, 228, 0.85);
+    background: rgb(245, 245, 245);
+    color: rgb(30, 30, 30);
   }
 
   /* ── Footer ── */
   .footer {
-    background: #0d0d0d !important;
-    color: rgba(240, 236, 228, 0.28);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #ffffff !important;
+    color: rgb(108, 108, 108);
+    border-top: 1px solid rgb(238, 238, 238);
   }
 
   .footer a {
-    color: rgba(240, 236, 228, 0.28);
+    color: rgb(108, 108, 108);
   }
 
   .hw-page {
@@ -409,8 +449,8 @@ cover:
     --hw-font-ui: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
     width: 100vw;
     margin-left: calc(50% - 50vw);
-    background: #0d0d0d;
-    color: #f0ece4;
+    background: #ffffff;
+    color: rgb(30, 30, 30);
     overflow-x: hidden;
     font-family: var(--hw-font-body);
   }
@@ -544,9 +584,9 @@ cover:
     display: flex;
     justify-content: center;
     padding: 5rem 2rem;
-    background: #111318;
-    border-top: 1px solid rgba(255,255,255,0.04);
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    background: #f5f5f5;
+    border-top: 1px solid rgb(238,238,238);
+    border-bottom: 1px solid rgb(238,238,238);
   }
 
   .hw-stat {
@@ -557,7 +597,7 @@ cover:
     align-items: center;
     gap: 0.5rem;
     padding: 0 2rem;
-    border-right: 1px solid rgba(255,255,255,0.07);
+    border-right: 1px solid rgb(238,238,238);
   }
 
   .hw-stat:last-child { border-right: none; }
@@ -565,7 +605,7 @@ cover:
   .hw-stat-n {
     font-size: clamp(2.4rem, 4.5vw, 3.8rem);
     font-weight: 700;
-    color: #f0ece4;
+    color: rgb(30,30,30);
     letter-spacing: -0.04em;
     line-height: 1;
   }
@@ -575,13 +615,13 @@ cover:
     font-size: 0.68rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(240,236,228,0.4);
+    color: rgb(108,108,108);
   }
 
   /* ═══════════════════════════════════════════════════════
      ESTABLISHING SHOT
   ═══════════════════════════════════════════════════════ */
-  .hw-establish { background: #0d0d0d; }
+  .hw-establish { background: #ffffff; }
 
   .hw-full-img {
     margin: 0;
@@ -594,7 +634,6 @@ cover:
     max-height: 88vh;
     object-fit: cover;
     display: block;
-    filter: brightness(0.82);
   }
 
   .hw-caption-block {
@@ -608,13 +647,13 @@ cover:
     font-size: clamp(1rem, 3.3vw, 2rem);
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #f0ece4;
+    color: rgb(30,30,30);
     margin: 0 0 1.1rem;
   }
 
   .hw-caption-block p {
     font-size: 1.1rem;
-    color: rgba(240,236,228,0.52);
+    color: rgb(108,108,108);
     line-height: 1.75;
     margin: 0;
   }
@@ -622,7 +661,7 @@ cover:
   .hw-footnote-ref {
     font-family: var(--hw-font-ui);
     font-size: 0.7em;
-    color: rgba(240,236,228,0.7);
+    color: rgb(108,108,108);
     vertical-align: super;
     background: none;
     border: 0;
@@ -633,25 +672,25 @@ cover:
   }
 
   .hw-footnote-ref:hover {
-    color: rgba(240,236,228,0.92);
+    color: rgb(30,30,30);
   }
 
   .hw-footnote-ref:focus-visible {
-    outline: 1px solid rgba(240,236,228,0.45);
+    outline: 1px solid rgba(30,30,30,0.45);
     outline-offset: 2px;
     border-radius: 3px;
   }
 
   .hw-endnotes {
     padding: 0 2rem 5rem;
-    background: #0d0d0d;
+    background: #ffffff;
   }
 
   .hw-endnotes-inner {
     max-width: 820px;
     margin: 0 auto;
     padding-top: 1.25rem;
-    border-top: 1px solid rgba(240,236,228,0.12);
+    border-top: 1px solid rgb(238,238,238);
   }
 
   .hw-footnote {
@@ -664,13 +703,13 @@ cover:
   .hw-footnote-num {
     font-family: var(--hw-font-ui);
     font-size: 0.75rem;
-    color: rgba(240,236,228,0.58);
+    color: rgb(108,108,108);
     line-height: 1.6;
   }
 
   .hw-footnote-body p {
     font-size: 0.9rem;
-    color: rgba(240,236,228,0.62);
+    color: rgb(108,108,108);
     margin: 0 0 0.65rem;
   }
 
@@ -690,9 +729,9 @@ cover:
     font-family: var(--hw-font-ui);
     font-size: 0.9rem;
     line-height: 1;
-    color: rgba(240,236,228,0.62);
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(240,236,228,0.12);
+    color: rgb(108,108,108);
+    background: rgb(245,245,245);
+    border: 1px solid rgb(238,238,238);
     border-radius: 999px;
     width: 1.9rem;
     height: 1.9rem;
@@ -705,13 +744,13 @@ cover:
   }
 
   .hw-footnote-back:hover {
-    color: rgba(240,236,228,0.92);
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(240,236,228,0.24);
+    color: rgb(30,30,30);
+    background: rgb(238,238,238);
+    border-color: rgb(210,210,210);
   }
 
   .hw-footnote-back:focus-visible {
-    outline: 1px solid rgba(240,236,228,0.45);
+    outline: 1px solid rgba(30,30,30,0.45);
     outline-offset: 2px;
   }
 
@@ -720,7 +759,7 @@ cover:
     width: min(220px, 100%);
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.28);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
   }
 
   /* ═══════════════════════════════════════════════════════
@@ -728,7 +767,7 @@ cover:
   ═══════════════════════════════════════════════════════ */
   .hw-interior {
     padding: 0 2rem 6rem;
-    background: #0d0d0d;
+    background: #ffffff;
   }
 
   .hw-section-label {
@@ -736,7 +775,7 @@ cover:
     font-size: 0.68rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: rgba(240,236,228,0.35);
+    color: rgb(108,108,108);
     text-align: center;
     padding: 4rem 0 2rem;
     margin: 0;
@@ -793,7 +832,8 @@ cover:
     font-size: 0.65rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(240,236,228,0.45);
+    color: rgb(255,255,255);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.55);
     margin: 0;
   }
 
@@ -850,7 +890,7 @@ cover:
   ═══════════════════════════════════════════════════════ */
   .hw-grounds {
     padding: 6rem 2rem;
-    background: #0d0d0d;
+    background: #ffffff;
   }
 
   .hw-grounds-intro {
@@ -862,13 +902,13 @@ cover:
     font-size: clamp(2.5rem, 5vw, 4.2rem);
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #f0ece4;
+    color: rgb(30,30,30);
     margin: 0 0 0.7rem;
   }
 
   .hw-grounds-intro p {
     font-size: 1rem;
-    color: rgba(240,236,228,0.45);
+    color: rgb(108,108,108);
     margin: 0;
   }
 
@@ -923,8 +963,8 @@ cover:
     font-size: 0.65rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    /* color: rgba(240,236,228,0.45); */
     color: rgb(255 255 255);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.55);
     margin: 0;
   }
 
@@ -933,8 +973,8 @@ cover:
   ═══════════════════════════════════════════════════════ */
   .hw-world {
     padding: 6rem 2rem;
-    background: #0d0d0d;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    background: #ffffff;
+    border-top: 1px solid rgb(238,238,238);
   }
 
   .hw-world-intro {
@@ -946,13 +986,13 @@ cover:
     font-size: clamp(2.5rem, 5vw, 4.2rem);
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #f0ece4;
+    color: rgb(30,30,30);
     margin: 0 0 0.7rem;
   }
 
   .hw-world-intro p {
     font-size: 1rem;
-    color: rgba(240,236,228,0.45);
+    color: rgb(108,108,108);
     margin: 0;
   }
 
@@ -992,7 +1032,8 @@ cover:
     font-size: 0.65rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(240,236,228,0.5);
+    color: rgb(255,255,255);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.55);
     margin: 0;
   }
 
@@ -1002,14 +1043,14 @@ cover:
   .hw-timeline-intro {
     padding: 7rem 2rem 0;
     text-align: center;
-    background: #0d0d0d;
+    background: #ffffff;
   }
 
   .hw-timeline-intro h2 {
     font-size: clamp(2.5rem, 5vw, 4.2rem);
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #f0ece4;
+    color: rgb(30,30,30);
     margin: 0.5rem 0 0;
   }
 
@@ -1019,15 +1060,15 @@ cover:
   .hw-outro {
     padding: 10rem 2rem;
     text-align: center;
-    background: #0d0d0d;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    background: #ffffff;
+    border-top: 1px solid rgb(238,238,238);
   }
 
   .hw-outro p {
     font-size: clamp(1.4rem, 3.5vw, 2.4rem);
     font-style: italic;
     font-weight: 300;
-    color: rgba(240,236,228,0.4);
+    color: rgb(108,108,108);
     letter-spacing: 0.02em;
     margin: 0;
   }
@@ -1091,12 +1132,12 @@ cover:
      TIMELINE — dark theme
   ═══════════════════════════════════════════════════════ */
   .pd-timeline-shell {
-    --pd-bg:     #0d0d0d;
-    --pd-card:   #15181e;
-    --pd-line:   #dddddd;
-    --pd-accent: #ffffff;
-    --pd-text:   #f0ece4;
-    --pd-shadow: 0 14px 40px rgba(0,0,0,0.55);
+    --pd-bg:     #ffffff;
+    --pd-card:   #f5f5f5;
+    --pd-line:   #d0d0d0;
+    --pd-accent: rgb(30,30,30);
+    --pd-text:   rgb(30,30,30);
+    --pd-shadow: 0 10px 30px rgba(0,0,0,0.10);
     padding: clamp(1.5rem, 2vw, 2.5rem);
     margin: 0;
     width: 100vw;
@@ -1239,8 +1280,8 @@ cover:
     border-radius: 16px;
     object-fit: cover;
     aspect-ratio: 16 / 10;
-    background: rgba(0,0,0,0.2);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
   }
 
   .pd-timeline-panel h2 {
@@ -1249,7 +1290,7 @@ cover:
     font-size: clamp(0.65rem, 1.8vw, 0.95rem);
     line-height: 1.4;
     font-weight: 500;
-    color: rgba(240,236,228,0.8);
+    color: rgb(60,60,60);
   }
 
   @media (max-width: 900px) {
@@ -1303,7 +1344,7 @@ cover:
   .hw-map-heading {
     font-size: clamp(1.4rem, 3.5vw, 2rem);
     font-weight: 700;
-    color: #f0ece4;
+    color: rgb(30,30,30);
     margin: 0 0 0.7rem;
       padding: 10px 10px;
     letter-spacing: -0.02em;
@@ -1312,7 +1353,7 @@ cover:
   .hw-map-sub {
     font-family: var(--hw-font-ui);
     font-size: 0.9rem;
-    color: rgba(240,236,228,0.45);
+    color: rgb(108,108,108);
     margin: 0 0 1.75rem;
   }
 
@@ -1330,29 +1371,29 @@ cover:
     text-transform: uppercase;
     padding: 6px 14px;
     border-radius: 3px;
-    border: 1px solid rgba(255,255,255,0.14);
+    border: 1px solid rgb(224,224,224);
     background: transparent;
-    color: rgba(255,255,255,0.38);
+    color: rgb(108,108,108);
     cursor: pointer;
     transition: background 0.18s, color 0.18s, border-color 0.18s;
   }
   .hw-map-tab:hover {
-    background: rgba(255,255,255,0.06);
-    color: rgba(255,255,255,0.8);
-    border-color: rgba(255,255,255,0.35);
+    background: rgb(245,245,245);
+    color: rgb(30,30,30);
+    border-color: rgb(200,200,200);
   }
   .hw-map-tab.is-active {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.5);
-    color: rgba(255,255,255,0.92);
+    background: rgb(30,30,30);
+    border-color: rgb(30,30,30);
+    color: rgb(255,255,255);
   }
 
   /* Map frame */
   .hw-map-wrap {
     position: relative;
     width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.55);
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
     overflow: hidden;
     cursor: grab;
     touch-action: none;
@@ -1446,12 +1487,13 @@ cover:
     width: 27%;
     max-width: 210px;
     z-index: 20;
-    background: rgba(8,8,10,0.9);
-    border: 1px solid rgba(255,255,255,0.09);
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(0,0,0,0.1);
     border-radius: 6px;
     overflow: hidden;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.18);
     transition: opacity 0.16s;
     pointer-events: auto;
   }
@@ -1461,7 +1503,7 @@ cover:
     width: 100%;
     aspect-ratio: 4/3;
     overflow: hidden;
-    background: rgba(255,255,255,0.03);
+    background: rgba(0,0,0,0.04);
   }
   .hw-panel-img-wrap img {
     width: 100%;
@@ -1478,18 +1520,18 @@ cover:
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #f0ece4;
+    color: rgb(30,30,30);
     margin: 0 0 0.3rem;
   }
   .hw-panel-desc {
     font-size: 0.7rem;
-    color: rgba(240,236,228,0.5);
+    color: rgb(108,108,108);
     line-height: 1.5;
     margin: 0;
   }
   .hw-panel-details {
     margin-top: 0.5rem;
-    border-top: 1px solid rgba(255,255,255,0.07);
+    border-top: 1px solid rgba(0,0,0,0.1);
     padding-top: 0.4rem;
   }
   .hw-panel-details summary {
@@ -1497,14 +1539,14 @@ cover:
     font-size: 0.58rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(240,236,228,0.3);
+    color: rgb(140,140,140);
     cursor: pointer;
     user-select: none;
     list-style: none;
     outline: none;
   }
   .hw-panel-details summary::-webkit-details-marker { display: none; }
-  .hw-panel-details.is-open summary { color: rgba(240,236,228,0.6); }
+  .hw-panel-details.is-open summary { color: rgb(90,90,90); }
   .hw-panel-chevron {
     width: 8px; height: 8px;
     vertical-align: middle;
@@ -1540,7 +1582,7 @@ cover:
   .hw-panel-history { margin: 0.2rem 0 0; }
   .hw-panel-history-text {
     font-size: 0.68rem;
-    color: rgba(240,236,228,0.42);
+    color: rgb(108,108,108);
     line-height: 1.55;
     margin: 0.4rem 0 0;
   }
@@ -1557,7 +1599,7 @@ cover:
     font-size: 0.56rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(240,236,228,0.28);
+    color: rgb(140,140,140);
     white-space: nowrap;
     margin-right: 2px;
   }
@@ -1589,6 +1631,84 @@ cover:
       border-radius: 4px;
     }
   }
+
+  /* ═══════════════════════════════════════════════════════
+     TOUR VIDEO
+  ═══════════════════════════════════════════════════════ */
+  .hw-tour {
+    padding: 1rem 2rem 6rem;
+    background: #ffffff;
+    text-align: center;
+  }
+  .hw-tour-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hw-tour .hw-section-label {
+    padding: 1.5rem 0 0.8rem;
+  }
+  .hw-tour-heading {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: rgb(30,30,30);
+    margin: 0 0 2.4rem;
+  }
+  .hw-tour-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.14);
+    background: #f5f5f5;
+  }
+  .hw-tour-facade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .hw-tour-facade img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.92);
+    transition: transform 0.6s ease, filter 0.4s ease;
+  }
+  .hw-tour-facade:hover img {
+    transform: scale(1.03);
+    filter: brightness(1);
+  }
+  .hw-tour-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(58px, 9vw, 80px);
+    transition: transform 0.2s ease;
+  }
+  .hw-tour-facade:hover .hw-tour-play {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  .hw-tour-play svg { width: 100%; height: auto; display: block; }
+  .hw-tour-play-bg {
+    fill: #212121;
+    opacity: 0.85;
+    transition: fill 0.2s ease, opacity 0.2s ease;
+  }
+  .hw-tour-facade:hover .hw-tour-play-bg { fill: #cc0000; opacity: 1; }
+  .hw-tour-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
 </style>
 
 <script>
@@ -1607,6 +1727,21 @@ cover:
     }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
     reveals.forEach(function (el) { obs.observe(el); });
   }
+})();
+
+// Click-to-play YouTube facade: only load the player when clicked.
+(function () {
+  document.querySelectorAll('.hw-tour-facade').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-video-id');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      iframe.title = 'Hogwarts castle tour';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      btn.replaceWith(iframe);
+    });
+  });
 })();
 </script>
 
