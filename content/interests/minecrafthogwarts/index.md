@@ -1405,7 +1405,8 @@ cover:
     will-change: transform;
     transition: transform 0.14s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
-  #hw-map-wrap.is-dragging #hw-map-canvas { transition: none; }
+  #hw-map-wrap.is-dragging #hw-map-canvas,
+  #hw-map-wrap.is-dragging .hw-marker { transition: none; }
   #hw-map-overlay {
     position: absolute;
     inset: 0;
@@ -1432,7 +1433,9 @@ cover:
     pointer-events: auto;
     padding: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+    transition: background 0.18s, box-shadow 0.18s, transform 0.18s,
+                left 0.14s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                top 0.14s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1;
   }
   /* Larger invisible touch target */
