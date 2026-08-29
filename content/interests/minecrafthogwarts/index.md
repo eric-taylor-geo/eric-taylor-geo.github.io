@@ -1631,7 +1631,7 @@ cover:
       top: auto; left: auto;
       width: 100%; max-width: none;
       margin-top: 0.6rem;
-      border-radius: 4px;
+      border-radius: 10px;
     }
   }
 
