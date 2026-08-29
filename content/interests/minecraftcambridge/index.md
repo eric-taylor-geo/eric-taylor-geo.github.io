@@ -24,7 +24,7 @@ disableAnchoredHeadings: false
 
 ## About the project
 
-I've always enjoyed recreating the world around me in Minecraft. Cambridge is simply begging to be Minecraft-ified. What started as a small project of recreating my college, Pembroke, over the winter vacation, quickly became a project of recreating as much of the city as possible. Check out my Instagram page ([@cambridgeinminecraft](https://www.instagram.com/cambridgeinminecraft/)).
+I've always enjoyed recreating the world around me in Minecraft, and Cambridge is simply begging for it. I started with my own college, Pembroke, over Christmas 2022. After that, whenever I felt like procrastinating, I'd turn to another college - and over the years I've recreated several more. Check out my Instagram page ([@cambridgeinminecraft](https://www.instagram.com/cambridgeinminecraft/)).
 
 ## Colleges
 
@@ -59,14 +59,14 @@ I've always enjoyed recreating the world around me in Minecraft. Cambridge is si
   <button class="next" aria-label="Next">&#10095;</button>
 </div>
 
-And a small recreation of the Cambridge scenes in <i>Oppenheimer</i>:
+<!-- And a small recreation of the Cambridge scenes in <i>Oppenheimer</i>: -->
 
-<video 
+<!-- <video 
   src="images/oppenheimer.mov" 
   controls 
   playsinline 
   style="width: 50%; object-fit: cover; display: block; margin: 1rem auto; border-radius: 12px; overflow: hidden;">
-</video>
+</video> -->
 
 
 ### St John's
