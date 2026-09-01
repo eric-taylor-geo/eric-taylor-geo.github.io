@@ -3,8 +3,8 @@ title: "Being a Minecraft YouTuber Was My Best Life Decision"
 # date: 2025-04-10
 # tags: ["Minecraft"]
 author: "Eric Taylor"
-description: "It set me up for life — seriously."
-summary: "It set me up for life — seriously."
+description: "It set me up for life - seriously."
+summary: "It set me up for life - seriously."
 cover:
     image: "images/episode1.png"
     alt: "Episode 1"
@@ -33,7 +33,7 @@ My first video was uploaded on the 14th February 2015[^2] — "Minecraft PC surv
 
 <p align="center"><i>Episode 1. I couldn't even spell "Beginning" right</i></p>
 
-I slowly improved at YouTube. I learnt how to edit videos, render 3D Minecraft objects, and create thumbnails. Despite uploading consistently for years, the channel went nowhere. But I didn’t care — I enjoyed making videos anyway.
+I slowly improved at YouTube. I learnt how to edit videos, render 3D Minecraft objects, and create thumbnails. Despite uploading consistently for years, the channel went nowhere. But I didn’t care. I enjoyed making videos anyway.
 
 Looking back, that taught me something important: effort alone doesn’t guarantee growth. Timing matters too. Luck matters.
 
@@ -71,7 +71,7 @@ Covid hit. Whether you view Covid as lucky or unlucky probably depends on your e
   </footer>
 </blockquote>
 
-I was prepared — I had done the practice, struggled, been consistent, learnt how to YouTube — allowing luck to favour me.
+I was prepared. I had done the practice, struggled, been consistent, learnt how to YouTube. Luck could now favour me.
 
 I started live streaming. Talking to yourself for hours at a time — and I mean genuinely to yourself when you have 0 viewers and such a high latency that even if you had 1 or 2, it was like having a conversation with someone on Mars — is a very difficult feat. And like anything, I started off being not very great at it[^4]. But after a lot of practice I got there! 
 
@@ -88,7 +88,7 @@ I think this philosophy is best captured by my microphone setup. I had bought my
 
 <p align="center"><i>Me and my setup against the world</i></p>
 
-Second lockdown hit over Winter 2021-22. In January alone I went from 7,000 to 12,000 subscribers and earnt over £1,500 — a huge amount of money for a 16-year-old stuck at home. For the first time, I was financially independent. I didn’t need to ask my parents for anything.
+Second lockdown hit over Winter 2020-21. In January alone I went from 7,000 to 12,000 subscribers and earnt over £1,500 — a huge amount of money for a 16-year-old stuck at home. For the first time, I was financially independent. I didn’t need to ask my parents for anything.
 
 I didn’t go crazy with it. I saved a good portion and spent the rest on things I actually valued — often small things, like buying coffee for friends or gifting them Discord Nitro (this was elite given we spent our lives on the app). It made me realise that I enjoyed using money to treat other people more than spending it on myself. 
 
@@ -150,11 +150,11 @@ Nothing I made was good the first time. But each video, each stream, (each Hogwa
 
 At the time, all of this felt disconnected. It just felt like making Minecraft videos.
 
-But looking back now, it’s clear that it built a foundation I still rely on today. These skills aren’t confined to YouTube — they’ve quietly carried over into everything else I do. I’ve used my web development skills in committees, and my design skills to create figures that communicate complex ideas more clearly. Coding feels natural because I’ve already spent years figuring things out from scratch. 
+But looking back now, it’s clear that it built a foundation I still rely on today. These skills aren’t confined to YouTube and they’ve carried over into everything else I do. I’ve used my web development skills in committees, and my design skills to create figures that communicate complex ideas more clearly. Coding feels natural because I’ve already spent years figuring things out from scratch. 
 
-And I’m convinced that learning to think aloud — to explain ideas clearly and in real time — played a part in getting me through my interviews at Cambridge and now Oxford.
+And I’m convinced that learning to think aloud, and explain ideas clearly and in real time,  played a part in getting me through my interviews at Cambridge and now Oxford.
 
-The biggest place this shows up in my 'real life' is in my research. When faced with a difficult problem, my instinct isn’t to get stuck — it’s to zoom out, test, and refine.
+The biggest place this shows up in my 'real life' is in my research. When faced with a difficult problem, my instinct isn’t to get stuck. Instead, it’s to zoom out, test, and refine.
 
 I hit a bit of a crisis during my dissertation — my results weren't very promising. Yes, “no result” is still a result, but I wanted something I could actually be proud of.
 
@@ -166,7 +166,7 @@ But that’s exactly the kind of thinking that had worked for me before. Cambrid
 
 And this time, it paid off.
 
-Research is iterative — it’s just retold as a clean, linear story at the end.
+Research is iterative. It’s just retold as a clean, linear story at the end.
 
 ## Being a Minecraft YouTuber was the best decision.
 
