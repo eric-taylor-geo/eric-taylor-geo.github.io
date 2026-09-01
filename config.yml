@@ -1,4 +1,4 @@
-baseURL: "https://pascalmichaillat.org/hugo-website/" 
+baseURL: "https://eric-taylor-geo.github.io/"
 title: Eric Taylor
 theme: PaperMod
 
@@ -49,8 +49,14 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Eric Taylor <span style="font-size:50%; vertical-align:middle;">(He/him)</span>
-          subtitle: "I am an MSc student in Environmental Data Science and Machine Learning at Imperial. I recently graduated with a first-class Geography degree from the University of Cambridge. I have an interest in machine learning applications for the environment. In my free time I enjoy running, filmmaking, and recreating locations in Minecraft.<br><br>Here, you can explore my academic projects and personal projects/interests."
+          title: Eric Taylor # <span style="font-size:50%; vertical-align:middle;">(He/him)</span>
+          subtitle: "I am an incoming DPhil student in AI for the Environment at the University of Oxford. I am interested in using machine learning to address important problems, especially in environmental science and the development of safe, reliable, and beneficial AI systems. I'm particularly interested in problems where technical research could have a large positive impact.
+            <br> <br>
+            I am finishing an MSc in Environmental Data Science and Machine Learning at Imperial College London, where I am researching ocean wave super-resolution for faster hazard mapping. Prior to this, I studied Geography at the University of Cambridge, where I researched limitations in modelling debris-covered glaciers.
+            <br> <br>
+            In my free time, I enjoy running, being in nature, and recreating locations in Minecraft.
+            <br><br>
+            This site collects some of my research, projects, and other interests."
           imageUrl: "profile_picture.JPG"
           imageWidth: 160
           imageHeight: 160
@@ -61,11 +67,11 @@ params:
             #   url: data/
             # - name: Books
             #   url: books/
-            - name: Projects
+            - name: Research & Projects
               url: projects/
             # - name: Travel
               # url: travel/
-            - name: Interests
+            - name: Personal Projects
               url: interests/
             # - name: Tags
             #   url: tags/
