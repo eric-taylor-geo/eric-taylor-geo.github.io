@@ -31,15 +31,17 @@ disableAnchoredHeadings: false
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
   ">
-    Classified debris-covered glaciers in the Everest Region
+    Classified debris-covered glaciers in the Everest Region. Brown is debris, grey is dirty ice, blue is water.
   </figcaption>
 </figure>
 
+In one of my third year papers, we had a lecture on using Random Forests for classifying Antarctic surface types from Sentinel-2 data. I decided to modify the pipeline and apply it to debris cover in the Everest Region, building on my dissertation.
+
 ## Introduction
 
-Presently, global and regional distributed debris thickness maps (e.g., <a href="#rounce2021">Rounce et al., 2021</a>; <a href="#mccarthy2022">McCarthy et al., 2022</a>) use a binary method of debris classification, whereby a pixel is either debris-covered (and has a measurable thickness) or it is clean ice. Such maps have a middle resolution, typically 30 m x 30 m, derived using satellite imagery.
+Presently, global and regional distributed debris thickness maps (e.g., <a href="#rounce2021">Rounce et al., 2021</a>; <a href="#mccarthy2022">McCarthy et al., 2022</a>) use a binary method of debris classification, whereby a pixel is either debris-covered (and has a measurable thickness) or it is clean ice. Such maps have a medium resolution, typically 30 m x 30 m, derived using satellite imagery.
 
-At the sub-pixel level, surface type within middle-resolution imagery is heterogeneous. This has implications for glacier melt models, where the estimated melt is dependent on the surface type. Thick debris cover on debris-covered glaciers reduces melt compared to a climatologically equivalent clean-ice surface <a href="#evatt2015">(Evatt et al., 2015)</a>. Below a critical thickness (typically 2–3 cm), debris cover enhances melt due to its lower albedo compared to clean ice. If both clean ice and debris-covered ice are present at the sub-pixel level, but a classification model only defines one surface type for the entire pixel, then subsequent melt estimates will be inaccurate.
+At the sub-pixel level, surface type within medium-resolution imagery is heterogeneous. This has implications for glacier melt models, where the estimated melt is dependent on the surface type. Thick debris cover on debris-covered glaciers reduces melt compared to a climatologically equivalent clean-ice surface <a href="#evatt2015">(Evatt et al., 2015)</a>. Below a critical thickness (typically 2–3 cm), debris cover enhances melt due to its lower albedo compared to clean ice. If both clean ice and debris-covered ice are present at the sub-pixel level, but a classification model only defines one surface type for the entire pixel, then subsequent melt estimates will be inaccurate.
 
 <a href="#rounce2018">Rounce et al. (2018)</a> identify this as the 'mixed pixel' effect in the lower ablation area on glacier tongues. Debris cover appears thick in their models, which would result in a significant reduction in estimated sub-debris ablation. However, measured ablation is significantly higher due to unresolved sub-pixel scale supraglacial ponds and ice cliffs. Exposed ice at such low elevations as the glacier tongue results in highly concentrated areas of melt, which can even offset the reduced ablation beneath thick debris, regarded as the 'debris-cover anomaly' <a href="#salerno2017">(Salerno et al., 2017)</a>.
 
@@ -76,9 +78,9 @@ A starting point is to develop a classifier which is able to classify satellite 
 
 ## Supervised Learning
 
-I am familiar with Landsat imagery, so let's use this to begin. Landsat 8 imagery is outputted as 30 m x 30 m and has a recurrence interval of 16 days over a given point. To classify Landsat imagery, I employ a supervised learning approach – a random forest classifier. 
+I am familiar with Landsat imagery, so let's use this to begin. Landsat 8 imagery is 30 m x 30 m and has a revisit time of 16 days over a given point. To classify Landsat imagery, I employ a supervised learning approach – a random forest classifier. 
 
-So, let's manually label some pixels for our model to learn from! Going through a satellite image, identifying the pixel type, and then logging its latitude and longitude manually is a lot of effort. Instead, I built a simple GUI to streamline the process: you drag and drop a satellite image and provide a CSV of desired classes. The program then shows you pixels, with their context, and allows you to quickly assign classes using the keyboard. Much faster!
+So, let's manually label some pixels for our model to learn from! Going through a satellite image, identifying the pixel type, and then logging its latitude and longitude manually is a lot of effort. Instead, I built (vibe-coded) a simple GUI to streamline the process: you drag and drop a satellite image and provide a CSV of desired classes. The program then shows you pixels, with their context, and allows you to quickly assign classes using the keyboard. Much faster!
 
 <figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
   <img src="supervision.png" alt="Classification software" style="display: block; width: 100%; height: auto; border-radius: 12px;">
@@ -103,19 +105,20 @@ So, let's manually label some pixels for our model to learn from! Going through 
 
 ## Producing a cloud-free image
 
-Mountains are cloudy. Therefore, to create a classified map of debris cover of the Everest Region, we need to create a mosaic of cloud-free imagery over the entire region. Can we automate this? Certainly!
+Mountains are cloudy<sup>[Citation Needed]</sup>. Therefore, to create a classified map of debris cover of the Everest Region, we need to create a mosaic of cloud-free imagery over the entire region. Can we automate this? Certainly!
 
-Let's add cloud cover (and cloud shadows) to our classified data. Now, we can train our model on our classed pixels and omit pixels classed as cloud cover.
+Let's add cloud cover (and cloud shadows) to our labelled data. 
 
-We now have our classed pixels, manually classed with my 'expert' eye. Let's run our classifier using Google Earth Engine. I'm only using one image for now which certainly limits the capability of our classifier. Let's see how it performs before we consider adding more.
+The end goal is to run the classifier over a season's worth of imagery, and take the mode class of each cloud-free pixel, to create a cloud-free mosaic of debris cover in the regions. 
+
 
 ## Classification
 
-### Training and Validation
+### Training and Testing
 
-Let's train our model on our classified satellite image. Let's split our data 70/30 into training and validation data, train our random forest classifier over all Landsat bands, and then apply it to validation data to assess its performance.
+Let's train our model on our classified satellite image. Let's split our data 70/30 into training and test data, train our random forest classifier over all Landsat bands, and then apply it to test data to assess its performance[^1].
 
-A confusion matrix can be used to evaluate classifier performance, which shows the actual class vs the model's predicted class. The confusion matrix below shows good performance – 97.9% overall! Not bad!
+A confusion matrix can be used to evaluate classifier performance, which shows the actual class vs the model's predicted class. The confusion matrix below shows good performance – 97.9% overall accuracy! Not bad!
 
 <figure style="position: relative; display: inline-block; margin: 0; border-radius: 12px; overflow: hidden;">
   <img src="confusion.png" alt="Confusion Matrix" style="display: block; width: 100%; height: auto; border-radius: 12px;">
@@ -123,7 +126,7 @@ A confusion matrix can be used to evaluate classifier performance, which shows t
 
 ### Application
 
-Let's apply our trained classifier to every Landsat 8 image of the Everest Region. We'll then mask out all pixels classed as either cloud or cloud cover. We now have a collection of classified images for the region. Due to variability between images (and likely due to our limited classification data), pixels are sometimes classed differently between different Landsat acquisitions. Let's simplify this by taking the mode across our collection to reach a final pixel class.
+Let's apply our trained classifier to every Landsat 8 image of the Everest Region. We'll then mask out all pixels classed as either cloud or cloud shadow. We now have a collection of classified images for the region. Due to variability between images (and likely due to our limited classification data), pixels are sometimes classed differently between different Landsat acquisitions. Let's simplify this by taking the mode across our collection to reach a final pixel class.
 
 ## Classified Debris Map
 
@@ -165,6 +168,8 @@ And so, our result... showing debris and partial debris cover!
 <p id="salerno2017">Salerno, F. et al. (2017) ‘Debris-covered glacier anomaly? Morphological factors controlling changes in the mass balance, surface area, terminus position, and snow line altitude of Himalayan glaciers’, <i>Earth and Planetary Science Letters</i>, 471, pp. 19–31. Available at: https://doi.org/10.1016/j.epsl.2017.04.039.</p>
 
 <p id="shean2017">Shean, D. (2017) ‘High Mountain Asia 8-meter DEM Mosaics Derived from Optical Imagery, Version 1’. NASA National Snow and Ice Data Center. Available at: https://doi.org/10.5067/0MCWJJH5ABGN.</p>
+
+[^1]: Having now done my Master's, I realise that splitting randomly will is likely to result in data leakage - in spatial imagery, autocorrelation is likely to be strong, therefore pixels assigned to different splits may not be independent samples. 
 
 </div>
 
