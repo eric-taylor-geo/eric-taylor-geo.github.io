@@ -102,7 +102,9 @@ $$
 
 ## Output
 
-Because the U-Net is trained on fixed-size $128 \times 128$ patches, full-scene prediction is performed using a sliding-window approach. The trained model is applied convolutionally across each large SAR image by extracting overlapping patches, predicting SIC for each patch, and recombining the outputs into a full-resolution prediction.
+The network is fully convolutional, therefore full-scene inference can be done in one forward pass.
+
+<!-- Because the U-Net is trained on fixed-size $128 \times 128$ patches, full-scene prediction is performed using a sliding-window approach. The trained model is applied convolutionally across each large SAR image by extracting overlapping patches, predicting SIC for each patch, and recombining the outputs into a full-resolution prediction.
 
 When patch predictions are stitched together using hard boundaries or uniform averaging, edge artefacts arise because pixels near edges have an incomplete spatial context for predictions. Consequently, a sliding Hann window was used, which is defined as:
 
@@ -130,7 +132,7 @@ $$
 \hat{y}(i,j)=\frac{\sum_{p} w^{(p)}(i,j)\,\hat{y}^{(p)}(i,j)}{\sum_{p} w^{(p)}(i,j)},
 $$
 
-where $p$ indexes all patches that cover pixel $(i, j)$, $\hat{y}^{(p)}(i, j)$ is the prediction for that pixel in patch $p$, and $w^{(p)}(i, j)$ is the Hann window weight for that pixel within patch $p$.
+where $p$ indexes all patches that cover pixel $(i, j)$, $\hat{y}^{(p)}(i, j)$ is the prediction for that pixel in patch $p$, and $w^{(p)}(i, j)$ is the Hann window weight for that pixel within patch $p$. -->
 
 The predictions can then be rounded to the nearest 10% to match the discretisation of the labelled dataset:
 $$
@@ -197,7 +199,7 @@ The U-Net model can be loaded using:
 import seaice
 from seaice.models.utils import get_model
 
-model = get_model("unet", load_weights=True) # download weights
+model = get_model("unet", load_weights=True) # ensure to download weights
 ``` 
 </div>
 
@@ -221,7 +223,7 @@ from seaice.data.data import load_x_y
 from seaice.predict.sliding_window import predict_sliding_window
 from seaice.visualisation import plot_prediction
 
-x_path = "seaice_data/test/X/20201013T080448_dmi_prep.nc" # download data
+x_path = "seaice_data/test/X/20201013T080448_dmi_prep.nc" # ensure to download data
 y_path = "seaice_data/test/Y/20201013T080448_dmi_prep_reference.nc"
 
 input, target = load_x_y(x_path, y_path)
