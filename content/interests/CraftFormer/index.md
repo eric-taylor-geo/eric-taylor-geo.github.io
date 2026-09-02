@@ -160,7 +160,7 @@ Next, let's look at the 16 learned discrete motifs:
 
 <p align="center"><i>Diamonds represent decoration blocks (e.g., button). </i></p>
 
-Each of these 16 tiles is one codebook entry, decoded back into the 4×4 patch it represents. This is the model's learned visual vocabulary. And the motifs are interpretable - we can most see where in the tracery they come from. The top right motif threw me off at first - it's mostly empty with a couple of fence gates floating in it. It also transpired that this was one of the most-used motifs, and it's the open interior of a light, with the fence gates maybe acting as thin bars. It turns out that these fence gates get overwritten in the blending process, therefore I couldn't spot them in my final windows, hence some of the confusion. Anyway, let's look at some full windows.
+Each of these 16 tiles is one codebook entry, decoded back into the 4×4 patch it represents. This is the model's learned visual vocabulary. And the motifs are interpretable - we can mostly see where in the tracery they come from. The top right motif threw me off at first - it's mostly empty with a couple of fence gates floating in it. It also turned out to be one of the most-used motifs - it's the open interior of a light, with the fence gates acting as thin glazing bars. It turns out these fence gates get overwritten in the blending process, therefore I couldn't spot them in my final windows, hence some of the confusion. Anyway, let's look at some full windows.
 
 ### Layouts
 
