@@ -1,6 +1,6 @@
 ---
 title: "Hogwarts"
-date: 2026-04-17
+date: 2023-08-17
 tags: ["Minecraft", "Hogwarts"]
 author: "Eric Taylor"
 description: "A Minecraft recreation of Hogwarts Castle."
