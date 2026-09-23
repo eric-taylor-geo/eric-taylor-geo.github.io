@@ -69,6 +69,10 @@ params:
 
     assets:
         disableScrollBarStyle: true
+        favicon: "favicon.ico?v=earth"
+        favicon16x16: "favicon-16x16.png?v=earth"
+        favicon32x32: "favicon-32x32.png?v=earth"
+        apple_touch_icon: "apple-touch-icon.png?v=earth"
     cover:
         hiddenInList: false
         hiddenInSingle: true
