@@ -16,5 +16,3 @@ Outside of work, I enjoy running (when not injured), being in nature, and buildi
 🔹 I donate a portion of my income and stipend to effective charities through Giving What We Can’s [Trial Pledge](https://www.givingwhatwecan.org/pledge).
 
 This is a home for my [work](/projects/), the things I make [for fun](/interests/), and occasional [notes](/personal/).
-
-You can [email me](mailto:eric.taylor@worc.ox.ac.uk) or find me on [GitHub](https://github.com/eric-taylor-geo) and [LinkedIn](https://www.linkedin.com/in/eric-taylor-8a82a4201/).
