@@ -8,28 +8,69 @@
   const panelImage = el('hw-panel-img'), imageLink = el('hw-image-link');
   const details = el('hw-panel-details'), history = el('hw-panel-history');
   const remembered = new Map();
+  const zoomIn = el('hw-zoom-in'), zoomOut = el('hw-zoom-out');
+  let mapWidth = wrap.clientWidth, mapHeight = wrap.clientHeight;
+  let markers = [], renderFrame = 0;
   let floor, scale = 1, x = 0, y = 0, moved = false;
+  let zoomFrame = 0, zoomTarget = null;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
   const films = { PS: "Philosopher’s Stone", CoS: 'Chamber of Secrets', PoA: 'Prisoner of Azkaban', GoF: 'Goblet of Fire', OotP: 'Order of the Phoenix', HBP: 'Half-Blood Prince', DH2: 'Deathly Hallows: Part 2' };
 
   function transform() {
-    x = clamp(x, wrap.clientWidth * (1 - scale), 0);
-    y = clamp(y, wrap.clientHeight * (1 - scale), 0);
-    canvas.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-    overlay.querySelectorAll('button').forEach(marker => {
-      marker.style.left = `${x + Number(marker.dataset.x) / 100 * wrap.clientWidth * scale}px`;
-      marker.style.top = `${y + Number(marker.dataset.y) / 100 * wrap.clientHeight * scale}px`;
+    cancelAnimationFrame(renderFrame);
+    renderFrame = 0;
+    x = clamp(x, mapWidth * (1 - scale), 0);
+    y = clamp(y, mapHeight * (1 - scale), 0);
+    canvas.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
+    markers.forEach(({ element, mx, my }) => {
+      element.style.transform = `translate3d(${x + mx * mapWidth * scale}px, ${y + my * mapHeight * scale}px, 0) translate(-50%, -50%)`;
     });
-    el('hw-zoom-out').disabled = scale <= 1;
-    el('hw-zoom-in').disabled = scale >= 5;
+    const atMin = (zoomTarget ?? scale) <= 1, atMax = (zoomTarget ?? scale) >= 5;
+    if (zoomOut.disabled !== atMin) zoomOut.disabled = atMin;
+    if (zoomIn.disabled !== atMax) zoomIn.disabled = atMax;
   }
-  function zoom(next, cx = wrap.clientWidth / 2, cy = wrap.clientHeight / 2) {
+  function scheduleTransform() {
+    if (!renderFrame) renderFrame = requestAnimationFrame(transform);
+  }
+  function stopZoom() {
+    cancelAnimationFrame(zoomFrame);
+    zoomFrame = 0;
+    zoomTarget = null;
+  }
+  function zoom(next, cx = mapWidth / 2, cy = mapHeight / 2, immediate = true) {
+    stopZoom();
     next = clamp(next, 1, 5);
     const ratio = next / scale;
     x = cx - (cx - x) * ratio; y = cy - (cy - y) * ratio;
-    scale = next; transform();
+    scale = next;
+    x = clamp(x, mapWidth * (1 - scale), 0);
+    y = clamp(y, mapHeight * (1 - scale), 0);
+    if (immediate) transform(); else scheduleTransform();
   }
-  function reset() { scale = 1; x = y = 0; transform(); }
+  function smoothZoom(next, cx = mapWidth / 2, cy = mapHeight / 2) {
+    stopZoom();
+    next = clamp(next, 1, 5);
+    if (reducedMotion.matches) { zoom(next, cx, cy); return; }
+    const from = { scale, x, y };
+    const targetX = clamp(cx - (cx - x) * next / scale, mapWidth * (1 - next), 0);
+    const targetY = clamp(cy - (cy - y) * next / scale, mapHeight * (1 - next), 0);
+    const started = performance.now();
+    zoomTarget = next;
+    function tick(now) {
+      const progress = clamp((now - started) / 260, 0, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      scale = from.scale + (next - from.scale) * eased;
+      x = from.x + (targetX - from.x) * eased;
+      y = from.y + (targetY - from.y) * eased;
+      if (progress === 1) { zoomFrame = 0; zoomTarget = null; }
+      transform(); // Move markers and map together throughout the animation.
+      if (progress < 1) zoomFrame = requestAnimationFrame(tick);
+    }
+    zoomFrame = requestAnimationFrame(tick);
+  }
+  function zoomStep(factor) { smoothZoom((zoomTarget ?? scale) * factor); }
+  function reset() { smoothZoom(1); }
   function showLocation(id) {
     const location = floor.locations.find(item => item.id === id);
     if (!location) return;
@@ -59,6 +100,7 @@
     tabs.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.floor === floor.id)));
     image.src = floor.map; image.alt = `Hogwarts ${floor.label.toLowerCase()} floor plan`;
     overlay.replaceChildren(); select.replaceChildren();
+    markers = [];
     floor.locations.forEach(location => {
       const option = new Option(location.label, location.id); select.add(option);
       const marker = document.createElement('button');
@@ -69,6 +111,7 @@
       marker.append(label);
       marker.addEventListener('click', event => { if (!moved || event.detail === 0) showLocation(location.id); });
       overlay.append(marker);
+      markers.push({ element: marker, mx: location.x / 100, my: location.y / 100 });
     });
     transform();
     showLocation(remembered.get(floor.id) || floor.locations[0]?.id);
@@ -79,20 +122,25 @@
     button.addEventListener('click', () => showFloor(item)); tabs.append(button);
   });
   select.addEventListener('change', () => showLocation(select.value));
-  el('hw-zoom-in').addEventListener('click', () => zoom(scale * 1.4));
-  el('hw-zoom-out').addEventListener('click', () => zoom(scale / 1.4));
+  el('hw-zoom-in').addEventListener('click', () => zoomStep(1.4));
+  el('hw-zoom-out').addEventListener('click', () => zoomStep(1 / 1.4));
   el('hw-reset').addEventListener('click', reset);
   wrap.addEventListener('dblclick', reset);
-  // Leave ordinary page scrolling intact; modified scrolling zooms the plan.
+  // Scroll over the plan to zoom around the cursor; page scrolling outside it is unchanged.
   wrap.addEventListener('wheel', event => {
-    if (!event.ctrlKey && !event.metaKey) return;
+    if (!event.deltaY) return;
     event.preventDefault(); const bounds = wrap.getBoundingClientRect();
-    zoom(scale * (event.deltaY > 0 ? .85 : 1 / .85), event.clientX - bounds.left, event.clientY - bounds.top);
+    // Normalize mouse-wheel line/page units and trackpad pixel deltas.
+    const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? mapHeight : 1;
+    const delta = clamp(event.deltaY * unit, -100, 100);
+    // Apply input immediately, with only one visual update per display frame.
+    zoom(scale * Math.exp(-delta * .0025), event.clientX - bounds.left, event.clientY - bounds.top, false);
   }, { passive: false });
   wrap.addEventListener('keydown', event => {
     if (event.target !== wrap) return;
-    if (event.key === '+' || event.key === '=') zoom(scale * 1.4);
-    else if (event.key === '-') zoom(scale / 1.4);
+    if (event.key.startsWith('Arrow')) stopZoom();
+    if (event.key === '+' || event.key === '=') zoomStep(1.4);
+    else if (event.key === '-') zoomStep(1 / 1.4);
     else if (event.key === '0') reset();
     else if (event.key === 'ArrowLeft') { x += 40; transform(); }
     else if (event.key === 'ArrowRight') { x -= 40; transform(); }
@@ -110,6 +158,8 @@
   }
   wrap.addEventListener('pointerdown', event => {
     if (event.button !== 0) return;
+    stopZoom();
+    transform();
     pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
     // Capture on the original target so a marker tap remains a marker click.
     event.target.setPointerCapture(event.pointerId);
@@ -131,7 +181,7 @@
       if (Math.abs(dx) + Math.abs(dy) > 5) moved = true;
       x = gesture.x + dx; y = gesture.y + dy;
     }
-    transform();
+    scheduleTransform();
   });
   function endPointer(event) {
     pointers.delete(event.pointerId);
@@ -140,6 +190,9 @@
   wrap.addEventListener('pointerup', endPointer);
   wrap.addEventListener('pointercancel', endPointer);
   image.addEventListener('load', transform);
-  new ResizeObserver(transform).observe(wrap);
+  new ResizeObserver(() => {
+    mapWidth = wrap.clientWidth; mapHeight = wrap.clientHeight;
+    stopZoom(); transform();
+  }).observe(wrap);
   showFloor(floors[0]);
 })();
