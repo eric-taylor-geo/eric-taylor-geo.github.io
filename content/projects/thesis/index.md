@@ -26,7 +26,7 @@ cover:
 editPost:
     URL: "Eric_Taylor_Dissertation.pdf"
     Text: "Full PDF"
-showToc: true
+# showToc: true
 disableAnchoredHeadings: false
 
 ---
@@ -40,5 +40,4 @@ This study produces a time series of debris cover evolution on Rongbuk Glacier, 
 This study further introduces two novel methods of monitoring debris cover evolution beyond simply analysing the evolution of individual distributed debris thickness maps, which are hampered by variability between maps in the time series. First, it stacks and averages distributed debris thickness maps over 5-year periods. Second, it uses pixel-wise linear regression to define a mean distributed ‘debris accumulation rate’ over the study period. It finds that debris is accumulating in the upper ablation area of Rongbuk Glacier at a rate of 1.3 ± 0.4 mm yr-1 . Debris accumulation in the accumulation zone at the base of mountainsides provides compelling evidence that the delivery of debris from adjacent mountainsides has increased.
 
 This study also finds multiple limitations with energy balance modelling in the upper ablation area and suggests areas for further research. Methods of incorporating fractional debris cover within low-resolution satellite-obtained imagery are needed to better understand and predict the future evolution of debris cover, which would result in better estimates of glacier longevity under climate change.
-
 

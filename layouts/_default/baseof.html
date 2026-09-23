@@ -1,28 +1,12 @@
-{{- if lt hugo.Version "0.147.2" }}
-{{- errorf "=> hugo v0.147.2 or greater is required for hugo-PaperMod to build " }}
-{{- end -}}
-
 <!DOCTYPE html>
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
-
-<head>
-    {{- partial "head.html" . }}
-</head>
-
-<body class="
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
-{{- print "list" -}}
-{{- end -}}
-{{- if eq site.Params.defaultTheme `dark` -}}
-{{- print " dark" }}
-{{- end -}}
-" id="top">
-    {{- if not .IsHome  }}
-    {{- partialCached "header.html" . .Page -}}
-    {{- end }}
-    <main class="main">
-        {{- block "main" . }}{{ end }}
-    </main>
-    {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+<html lang="{{ site.Language.LanguageCode | default "en" }}">
+<head>{{ partial "head.html" . }}</head>
+<body class="earth {{ if .IsHome }}earth-home{{ else }}earth-{{ .Section | default .Kind }}{{ end }}" id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    {{ partial "header.html" . }}
+    <main class="main" id="main" tabindex="-1">{{ block "main" . }}{{ end }}</main>
+    {{ partial "footer.html" . }}
+  </div>
 </body>
 </html>

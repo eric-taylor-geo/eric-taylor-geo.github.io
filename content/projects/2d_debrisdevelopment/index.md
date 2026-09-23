@@ -3,8 +3,8 @@ title: "2D Debris Development Model"
 date: 2024-12-09
 tags: ["Research"]
 author: "Eric Taylor"
-description: "A simple 2D MATLAB model for debris development." 
-summary: "A simple 2D MATLAB model for debris development." 
+description: "A simple 2D model for debris development." 
+summary: "A simple 2D model for debris development." 
 cover:
     image: "cover_image.jpg"
     alt: "Everest Region"
@@ -39,7 +39,7 @@ disableAnchoredHeadings: false
 
 Debris-covered glaciers play an important role in high mountain environments, where layers of rock and sediment strongly influence how ice melts and evolves. Understanding how this debris develops is key for predicting glacier behaviour, meltwater supply, and long-term stability.
 
-Here I present a simple two-dimensional MATLAB model designed to explore the main controls on debris development.
+Here, I present a simple two-dimensional model designed to explore the main controls on debris development.
 
 Let's define a 1D array, where each item represents a pixel of finite size (length $\Delta x$, width $\Delta y$). This array will store the volume of debris within each pixel. The debris thickness is simply:
 
@@ -69,8 +69,6 @@ The change in debris volume inside pixel $i$ is therefore the flux intering thro
 <div align="center">
 $\frac{dV_i}{dt} = Q_{i - \frac{1}{2}} - Q_{i + \frac{1}{2}}$
 </div>
-
-Assuming the valley width remains constant in our model, it can be seen that when the glacier velocity is constant across regions, $dV/dt = 0$, and hence, there is no debris development.
 
 Mountain glaciers typically decline in velocity monotonically toward the termius. Therefore, under such regimes, the debris flux into a given region is always greater than the flux out. Consequently, debris cover thickens down-glacier.
 
@@ -142,21 +140,7 @@ V_i^{t+1} = V_i^t + \Delta t \left( Q_{i - \frac{1}{2}} - Q_{i + \frac{1}{2}} + 
 $
 </div>
 
-## Numerical Model
-
-Let's now write this in Matlab.
-
-Let's define our constants arrays:
-
-```
-pixel_width = 1;
-num_pixels = 100;
-
-
-debris_volume = zeros(1, num_pixels);
-ice_velocity = []  % Monotonically decreasing  
-elevation = []
-```
+[Insert simulations]
 
 
 
