@@ -13,7 +13,7 @@ cover:
 editPost:
     URL: "poster.pdf"
     Text: "Poster PDF"
-showToc: true
+# showToc: true
 disableAnchoredHeadings: false
 
 ---

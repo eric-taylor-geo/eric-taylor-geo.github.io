@@ -130,7 +130,7 @@ I had disagreements with people, and not every decision I made was popular. Some
 
 Minecraft itself added another layer — constantly thinking in 3D allowed me to develop incredible visual skills — the Red Apple Test? My apple is 4k quality and I can do whatever I want to it.
 
-And then there was coding. What started as a simple Discord bot turned into hours of debugging, searching forums, talking to people, and slowly learning how to think like a programmer. I wasn't just coding for the sake of it — I was coding to deliver features my community was asking for.
+And then there was coding. What started as a simple Discord bot turned into hours of debugging, searching forums, trial and error, and talking to people.
 
 Across all of this, one skill sat underneath everything else: iteration.
 

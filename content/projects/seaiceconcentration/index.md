@@ -40,7 +40,6 @@ disableAnchoredHeadings: false
 
 ## Sea Ice
 
-
 ## Data
 
 This project uses the labelled dataset from Buss-Hinker et al. (<a href="#Buus-Hinkler">2022</a>) which consists of 513 training and 20 test (without label data) scenes. Not wishing to download 200Gb+ of data onto my laptop (and then have to upload it into Google Colab), all model training and evluation was done on 10 labelled images (~5000x5000 pixels, 80 m resolution), split 80/20. Naturally, this limits the statistical power and generalisability of the results. Consequently, reported performance should be interpreted as a proof-of-concept rather than a definitive assessment of model skill, with further validation on a larger and more heterogeneous dataset required to robustly evaluate transferability and operational performance.
