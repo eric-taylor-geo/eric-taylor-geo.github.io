@@ -19,7 +19,7 @@ var HW_FLOORS = [
       { id: "clock-tower",        label: "Clock Tower",           x: 69.49, y: 41.88, image: "images/floorplan-grounds-clocktower.jpg",              desc: "", firstSeen: "PoA", updatedIn: [],              history: "" },
       { id: "grand-staircase",    label: "Grand Staircase Tower", x: 54.19, y: 32.55, image: "images/floorplan-grounds-grandstaircasetower.jpg",     desc: "", firstSeen: "PS",  updatedIn: ["PoA"],         history: "" },
       { id: "north-tower",        label: "North Tower",           x: 66.15, y: 31.98, image: "images/floorplan-grounds-northtower.jpg",              desc: "", firstSeen: "PS",  updatedIn: ["PoA"],              history: "" },
-      { id: "alnwick-entrance",   label: "Alnwick Entrance",      x: 54.07, y: 94.23, image: "images/floorplan-grounds-alnickentrance.jpg",          desc: "", firstSeen: "PS",  updatedIn: ["CoS", "PoA"],         history: "" },
+      { id: "alnwick-entrance",   label: "Alnwick Entrance",      x: 54.07, y: 94.23, image: "images/floorplan-grounds-alnickentrance.jpg",          desc: "", firstSeen: "PS",  updatedIn: ["CoS", "PoA"],         history: "Filmed at Alnwick Castle" },
       { id: "greenhouses",        label: "Greenhouses",           x: 46.17, y: 89.09, image: "images/floorplan-grounds-greenhouses.jpg",             desc: "", firstSeen: "PS",  updatedIn: ["CoS"],              history: "" }
     ]
   },
