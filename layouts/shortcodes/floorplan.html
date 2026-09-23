@@ -1,0 +1,26 @@
+{{ $overview := .Get "overview" | default "images/floorplan-grounds.png" }}
+<section class="floorplan" aria-label="Interactive Hogwarts floor plan">
+  <div id="hw-map-tabs" class="floor-tabs" role="group" aria-label="Choose a floor"></div>
+  <div class="floor-toolbar">
+    <label for="hw-location">Location <select id="hw-location"></select></label>
+    <div class="zoom-controls" role="group" aria-label="Map zoom">
+      <button type="button" id="hw-zoom-out" aria-label="Zoom out">−</button>
+      <button type="button" id="hw-zoom-in" aria-label="Zoom in">+</button>
+      <button type="button" id="hw-reset">Reset</button>
+    </div>
+  </div>
+  <div id="hw-map-wrap" class="floor-map" tabindex="0" role="region" aria-label="Floor plan. Use plus and minus to zoom, arrow keys to pan, or zero to reset.">
+    <div id="hw-map-canvas"><img id="hw-map-img" src="{{ $overview }}" width="2508" height="1576" alt="Hogwarts overview floor plan" draggable="false"></div>
+    <div id="hw-map-overlay"></div>
+  </div>
+  <p class="map-help">Drag to pan · pinch or use + / − to zoom</p>
+  <div id="hw-map-panel" class="floor-panel" aria-live="polite" aria-atomic="true">
+    <a id="hw-image-link"><img id="hw-panel-img" alt="" hidden></a>
+    <div><h3 id="hw-panel-name">Select a location</h3><p id="hw-panel-desc">Choose a marker on the plan or a location from the menu.</p>
+      <details id="hw-panel-details" hidden open><summary>History</summary><div id="hw-panel-history"></div></details>
+    </div>
+  </div>
+  <noscript><p>Enable JavaScript to switch floors and explore locations. <a href="{{ $overview }}">Open the overview floor plan.</a></p></noscript>
+</section>
+{{ with .Page.Resources.GetMatch "floorplan-data.js" }}<script defer src="{{ .RelPermalink }}"></script>{{ end }}
+{{ $js := resources.Get "js/floorplan.js" | minify | fingerprint }}<script defer src="{{ $js.RelPermalink }}"></script>

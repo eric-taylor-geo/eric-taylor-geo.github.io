@@ -1,0 +1,36 @@
+.floorplan { margin: 30px 0; --map-ink: #37695f; }
+.floor-tabs { display: flex; flex-wrap: wrap; gap: 5px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+.floorplan button, .floorplan select { font: 12px/1.5 var(--mono); color: var(--content); background: white; border: 1px solid var(--border); border-radius: 2px; padding: 8px 10px; cursor: pointer; }
+.floor-tabs button[aria-pressed="true"] { background: var(--map-ink); color: white; border-color: var(--map-ink); }
+.floor-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 14px 0; }
+.floor-toolbar label { display: flex; align-items: center; gap: 10px; min-width: 0; font: 11px/1.5 var(--mono); color: var(--secondary); }
+.floor-toolbar select { min-width: 0; max-width: 230px; }
+.zoom-controls { display: flex; gap: 4px; flex-shrink: 0; }
+.floor-map { position: relative; width: 100%; aspect-ratio: 2508 / 1576; overflow: hidden; background: #f4f5f0; border: 1px solid var(--border); touch-action: none; cursor: grab; }
+.floor-map.is-dragging { cursor: grabbing; }
+#hw-map-canvas { position: absolute; inset: 0; transform-origin: 0 0; }
+.floorplan #hw-map-img { width: 100%; height: 100%; display: block; margin: 0; border-radius: 0; user-select: none; pointer-events: none; }
+#hw-map-overlay { position: absolute; inset: 0; pointer-events: none; }
+.floorplan .hw-marker { position: absolute; transform: translate(-50%,-50%); padding: 0; width: 24px; height: 24px; background: transparent; border: 0; border-radius: 50%; pointer-events: auto; }
+.hw-marker::before { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: var(--map-ink); box-shadow: 0 0 0 2px #fff; }
+.hw-marker[aria-pressed="true"]::before { background: var(--accent); box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--accent); }
+.hw-marker-label { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); padding: 4px 7px; background: white; color: var(--primary); border: 1px solid var(--border); white-space: nowrap; font: 10px/1.4 var(--mono); pointer-events: none; visibility: hidden; }
+.hw-marker:hover, .hw-marker:focus-visible { z-index: 2; }
+.hw-marker:hover .hw-marker-label, .hw-marker:focus-visible .hw-marker-label { visibility: visible; }
+.post-content .map-help { font: 10px/1.7 var(--mono); color: var(--secondary); margin: 10px 0 24px; }
+.floor-panel { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+.floor-panel > a { text-decoration: none; }
+.floorplan #hw-panel-img { width: 100%; margin: 0; border-radius: 2px; }
+.floor-panel h3 { font: 400 24px/1.3 var(--serif); margin: 0 0 12px; }
+.floor-panel p, .floor-panel details { font-size: 15px; line-height: 1.65; }
+.floor-panel summary { cursor: pointer; font: 11px/1.8 var(--mono); color: var(--secondary); margin-bottom: 10px; }
+.floor-panel [hidden] { display: none; }
+.film-row { font: 10px/1.7 var(--mono); color: var(--secondary); margin-bottom: 10px; }
+@media (max-width: 700px) {
+  .floor-toolbar { flex-wrap: wrap; gap: 10px; }
+  .floor-toolbar label { width: 100%; }
+  .floor-toolbar select { flex: 1; max-width: none; }
+  .floor-tabs button { min-height: 44px; }
+  .zoom-controls button { min-width: 44px; min-height: 44px; }
+  .floor-panel { grid-template-columns: 1fr; gap: 18px; }
+}
