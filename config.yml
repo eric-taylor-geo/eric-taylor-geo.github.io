@@ -18,15 +18,18 @@ menu:
         - name: cv
           url: /Eric_Taylor_CV.pdf
           weight: 2
-        - name: work
-          pageRef: /projects
+        - name: publications
+          pageRef: /publications
           weight: 3
+        - name: projects
+          pageRef: /projects
+          weight: 4
         - name: play
           pageRef: /interests
-          weight: 4
+          weight: 5
         - name: notes
           pageRef: /personal
-          weight: 5
+          weight: 6
 
 
 params:

@@ -4,7 +4,9 @@
 <body class="earth {{ if .IsHome }}earth-home{{ else }}earth-{{ .Section | default .Kind }}{{ end }}" id="top">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
-    {{ partial "header.html" . }}
+    {{ if ne .Section "publications" }}
+      {{ partial "header.html" . }}
+    {{ end }}
     <main class="main" id="main" tabindex="-1">{{ block "main" . }}{{ end }}</main>
     {{ partial "footer.html" . }}
   </div>

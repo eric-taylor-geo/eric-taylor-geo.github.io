@@ -114,3 +114,8 @@ a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visib
   .home-intro .home-portrait { float: none; display: block; width: 128px; height: 128px; margin: 0 0 24px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+.earth-publications .site-shell {
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 0;
+}

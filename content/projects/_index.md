@@ -1,5 +1,5 @@
 ---
-title: "Work"
+title: "Projects"
 description: "Research and projects in machine learning and environmental science."
 ---
 

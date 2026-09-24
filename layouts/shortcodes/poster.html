@@ -1,0 +1,19 @@
+{{ $pdf := .Page.Resources.GetMatch (.Get "src") }}
+<section class="poster-viewer" data-pdf="{{ $pdf.RelPermalink }}" aria-label="Interactive conference poster">
+  <div class="poster-toolbar" role="group" aria-label="Poster zoom">
+    <button type="button" data-action="out" aria-label="Zoom out" disabled>−</button>
+    <button type="button" data-action="in" aria-label="Zoom in" disabled>+</button>
+    <button type="button" data-action="reset" disabled>Reset</button>
+  </div>
+  <div class="poster-viewport" tabindex="0" role="region" aria-label="Poster. Drag to pan, scroll or pinch to zoom. Use plus and minus to zoom, arrow keys to pan, and zero to reset.">
+    <div class="poster-sheet"></div>
+    <p class="poster-status" role="status">Loading poster…</p>
+  </div>
+  <div class="poster-caption"><span>Drag to pan · scroll to zoom · pinch on mobile</span><a href="{{ $pdf.RelPermalink }}" download>Download PDF</a></div>
+  <noscript><p>Open the PDF using the download link to view the poster.</p></noscript>
+</section>
+{{ if not (.Page.Scratch.Get "poster-script") }}
+  {{ .Page.Scratch.Set "poster-script" true }}
+  {{ $js := resources.Get "js/poster.js" | fingerprint }}
+  <script type="module" src="{{ $js.RelPermalink }}"></script>
+{{ end }}
