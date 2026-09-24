@@ -2,8 +2,9 @@
 title: "Remote sensing early supraglacial debris evolution on a mountain glacier using an energy
 balance model, thermal imagery, and climate reanalysis data"
 date: 2025-09-15
+publication_kind: conference
 tags: ["Research"]
-author: "Eric Taylor"
+author: ["Eric Taylor", "Rebecca Dell"]
 description: "Poster presented at the IGS-BB 2025 Conference in Oxford, 2025." 
 summary: "Poster presented at the IGS-BB 2025 Conference in Oxford, 2025." 
 cover:

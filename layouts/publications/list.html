@@ -1,0 +1,29 @@
+{{ define "main" }}
+<header class="page-header"><h1>{{ .Title }}</h1></header>
+{{ $publications := .RegularPagesRecursive.ByDate.Reverse }}
+{{ range slice (dict "kind" "paper" "title" "Papers") (dict "kind" "conference" "title" "Conference presentations") }}
+<section class="publication-group" aria-labelledby="publications-{{ .kind }}">
+  <div class="post-content">
+    <h2 id="publications-{{ .kind }}">{{ .title }}</h2>
+    {{ if eq .kind "paper" }}{{ $.Content }}{{ end }}
+  </div>
+  <div class="entries">
+    {{ range where $publications "Params.publication_kind" .kind }}
+    <article class="entry{{ if .Params.cover.image }} has-cover{{ end }}">
+      {{ if .Params.cover.image }}
+      <a class="entry-image" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+        {{ partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" false) }}
+      </a>
+      {{ end }}
+      <div class="entry-copy">
+        {{ if not .Date.IsZero }}<time class="entry-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "January 2006" }}</time>{{ end }}
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ with .Params.author }}<p class="entry-authors">{{ if reflect.IsSlice . }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}</p>{{ end }}
+        {{ if not (.Param "hideSummary") }}<p>{{ .Params.summary | default .Description | default (.Summary | plainify | htmlUnescape) }}</p>{{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

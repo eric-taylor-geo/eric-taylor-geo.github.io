@@ -62,9 +62,12 @@ body.earth { background: var(--theme) !important; color: var(--content); font-fa
 .entry { display: grid; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border); }
 .entry.has-cover { grid-template-columns: minmax(0,1fr) 148px; }
 .entry-copy { grid-column: 1; grid-row: 1; min-width: 0; }
-.entry h2 { font: 400 23px/1.35 var(--serif); letter-spacing: -.015em; margin: 7px 0 9px; }
-.entry h2 a:hover { color: var(--darkcolor); }
+.entry h2, .entry h3 { font: 400 23px/1.35 var(--serif); letter-spacing: -.015em; margin: 7px 0 9px; }
+.entry h2 a:hover, .entry h3 a:hover { color: var(--darkcolor); }
+.publication-group + .publication-group { margin-top: 42px; }
+.publication-group .entries:empty { display: none; }
 .entry p { font-size: 16px; line-height: 1.65; color: var(--secondary); margin: 0; }
+.entry .entry-authors { font-size: 14px; color: var(--primary); margin: 0 0 8px; }
 .entry-date { color: var(--secondary); font: 10px/1.7 var(--mono); }
 .entry-image { grid-column: 2; grid-row: 1; align-self: center; }
 .entry-cover { margin: 0; }
@@ -100,7 +103,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visib
   .now-note { padding-left: 20px; }
   .entry.has-cover { grid-template-columns: minmax(0, 1fr) 100px; gap: 18px; }
   .entry-cover img { width: 100px; height: 80px; }
-  .entry h2 { font-size: 21px; }
+  .entry h2, .entry h3 { font-size: 21px; }
   .entry p { font-size: 15px; }
   .footer { margin-top: 54px; }
 }
