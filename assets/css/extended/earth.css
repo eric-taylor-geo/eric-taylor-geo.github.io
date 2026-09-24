@@ -54,8 +54,7 @@ body.earth { background: var(--theme) !important; color: var(--content); font-fa
 .post-meta { color: var(--secondary); font: 11px/1.8 var(--mono); }
 .post-content pre { font-size: 14px; }
 .now-note { border-left: 1px solid var(--border); margin: 32px 0; padding: 0 0 0 24px; }
-.now-note .small-label { margin-bottom: 12px; }
-.now-note .small-label::before { content: "🌍"; display: inline-block; font-size: 14px; vertical-align: middle; margin-right: 10px; }
+.now-note .small-label { margin-bottom: 12px; text-transform: none; }
 .now-note p:not(.small-label):last-child { margin-bottom: 0; font-size: 18px; }
 .section-intro { margin-bottom: 42px; color: var(--secondary); }
 .entries { border-top: 1px solid var(--border); }
