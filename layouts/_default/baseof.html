@@ -7,7 +7,14 @@
     {{ if ne .Section "publications" }}
       {{ partial "header.html" . }}
     {{ end }}
-    <main class="main" id="main" tabindex="-1">{{ block "main" . }}{{ end }}</main>
+    <main class="main" id="main" tabindex="-1">
+      {{ if and (eq .Section "publications") (ne . .FirstSection) }}
+      <nav class="publication-back" aria-label="Back navigation">
+        <a href="{{ .FirstSection.RelPermalink }}">← Back to publications</a>
+      </nav>
+      {{ end }}
+      {{ block "main" . }}{{ end }}
+    </main>
     {{ partial "footer.html" . }}
   </div>
 </body>

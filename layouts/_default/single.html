@@ -14,6 +14,9 @@
       </span>
       {{- end }}
     </h1>
+    {{ if eq .Section "publications" }}
+      {{ with .Params.author }}<p class="publication-authors">{{ if reflect.IsSlice . }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}</p>{{ end }}
+    {{ end }}
     {{- if not (.Param "hideMeta") }}
     <div class="post-meta">
       {{- partial "post_meta.html" . -}}
