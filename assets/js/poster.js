@@ -38,20 +38,42 @@ async function setup(root) {
   async function render() {
     const version = ++generation;
     task?.cancel();
-    // Limit the backing store to 16 megapixels, including on high-DPI phones.
-    const requested = fit * scale * Math.min(window.devicePixelRatio || 1, 2);
-    const resolution = Math.min(requested, Math.sqrt(16000000 / (original.width * original.height)));
+    // Keep a full-page preview beneath a sharp crop of the visible area.
+    // Cropping makes resolution independent of the size of the zoomed poster.
+    const preview = !sheet.firstElementChild;
+    const renderScale = preview ? 1 : scale;
+    const pageWidth = original.width * fit * renderScale;
+    const pageHeight = original.height * fit * renderScale;
+    const left = preview ? 0 : Math.max(0, -x - 128);
+    const top = preview ? 0 : Math.max(0, -y - 128);
+    const right = preview ? pageWidth : Math.min(pageWidth, width - x + 128);
+    const bottom = preview ? pageHeight : Math.min(pageHeight, height - y + 128);
+    const cropWidth = right - left, cropHeight = bottom - top;
+    const density = Math.min(window.devicePixelRatio || 1,
+      Math.sqrt(16000000 / (cropWidth * cropHeight)),
+      4096 / Math.max(cropWidth, cropHeight));
+    const resolution = fit * renderScale * density;
     const view = page.getViewport({ scale: resolution });
     const canvas = window.document.createElement('canvas');
-    canvas.width = Math.ceil(view.width); canvas.height = Math.ceil(view.height);
+    canvas.width = Math.ceil(cropWidth * density); canvas.height = Math.ceil(cropHeight * density);
+    if (!preview) {
+      canvas.className = 'poster-detail';
+      Object.assign(canvas.style, {
+        left: `${left / renderScale}px`, top: `${top / renderScale}px`,
+        width: `${cropWidth / renderScale}px`, height: `${cropHeight / renderScale}px`,
+      });
+    }
     canvas.setAttribute('role', 'img');
     canvas.setAttribute('aria-label', 'IGS conference research poster. Full text is available in the downloadable PDF.');
     try {
-      task = page.render({ canvasContext: canvas.getContext('2d'), viewport: view });
+      task = page.render({ canvasContext: canvas.getContext('2d'), viewport: view,
+        transform: [1, 0, 0, 1, -left * density, -top * density] });
       await task.promise;
       if (version !== generation) return;
-      sheet.replaceChildren(canvas);
+      if (preview) sheet.replaceChildren(canvas);
+      else { sheet.querySelector('.poster-detail')?.remove(); sheet.append(canvas); }
       status.hidden = true;
+      if (preview) queueRender();
     } catch (error) {
       if (error.name !== 'RenderingCancelledException') {
         status.textContent = 'Preview unavailable. Download the PDF below.';
@@ -145,6 +167,7 @@ async function setup(root) {
     } else {
       x = gesture.x + points[0].x - gesture.points[0].x;
       y = gesture.y + points[0].y - gesture.points[0].y;
+      queueRender();
     }
     transform();
   });
@@ -152,6 +175,7 @@ async function setup(root) {
     pointers.delete(event.pointerId);
     if (pointers.size) startGesture();
     else viewport.classList.remove('is-dragging');
+    queueRender();
   }
   for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) viewport.addEventListener(type, endPointer);
   new ResizeObserver(() => {
@@ -159,6 +183,7 @@ async function setup(root) {
     fit = Math.min(width / original.width, height / original.height);
     sheet.style.width = `${original.width * fit}px`;
     sheet.style.height = `${original.height * fit}px`;
+    sheet.querySelector('.poster-detail')?.remove();
     zoom(1);
   }).observe(viewport);
 }
