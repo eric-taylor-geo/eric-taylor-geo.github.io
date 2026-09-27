@@ -1,4 +1,8 @@
 <footer class="footer"><span><a href="{{ site.Home.RelPermalink }}">Eric Taylor</a></span><span>Powered by <a href="https://gohugo.io/">Hugo</a>, <a href="https://github.com/adityatelange/hugo-PaperMod/">papermod</a>, and <a href="https://github.com/pmichaillat/hugo-website/">hugo-website</a>.</span></footer>
+{{- if .IsPage }}
+{{- $footnotes := resources.Get "js/footnotes.js" | minify | fingerprint }}
+<script defer src="{{ $footnotes.RelPermalink }}"></script>
+{{- end }}
 {{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (.Param "ShowCodeCopyButtons")) }}
 <script>
     document.querySelectorAll('pre > code').forEach((codeblock) => {

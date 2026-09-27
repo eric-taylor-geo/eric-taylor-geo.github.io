@@ -1,0 +1,24 @@
+.footnote-preview {
+  position: fixed;
+  z-index: 1000;
+  width: min(360px, calc(100vw - 24px));
+  max-height: min(360px, calc(100dvh - 24px));
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--theme);
+  color: var(--content);
+  box-shadow: 0 6px 24px rgb(0 0 0 / 14%);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.footnote-preview[hidden] { display: none; }
+.footnote-preview p { margin: 0 0 12px; }
+.footnote-preview > :last-child { margin-bottom: 0; }
+.footnote-preview a { text-decoration: underline; text-underline-offset: 3px; }
+.footnote-preview img { max-width: 100%; height: auto; }
+.footnote-preview ul, .footnote-preview ol { padding-left: 20px; }
+.footnote-preview :focus-visible { outline: 2px solid var(--secondary); outline-offset: 3px; }
